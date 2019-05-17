@@ -2,7 +2,7 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
+  - json
   - ruby
   - python
   - javascript
@@ -17,40 +17,52 @@ includes:
 search: true
 ---
 
-# Introduction
+# Soltek Api Reference
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+### Environment Postman
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+Variable |  Value
+--------------|---------
+{{url}} | https://apisoltek.kokonutstudio.com 
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+# Login [POST]
 
-# Authentication
+Name Endpoint |  Endpoint
+--------------|------------
+login GENERAL | {{url}}/api/login 
 
-> To authorize, use this code:
+<aside class="notice">
+Make sure to replace <code>{{url}}}</code> with your API URL.
+</aside>
 
-```ruby
-require 'kittn'
+### Body
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+* Type form-data
 
-```python
-import kittn
+Field    | Description | Mandatory
+---------|-------------|----------
+username | User email  |     1
+password | User password |   1
 
-api = kittn.authorize('meowmeowmeow')
-```
+## Success response
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
+> To authorize, use "token_type" and "access_token":
 
-```javascript
-const kittn = require('kittn');
+```json
 
-let api = kittn.authorize('meowmeowmeow');
+{
+    "success": 1,
+    "message": "",
+    "data": {
+        "token_type": "Bearer",
+        "expires_in": 604800,
+        "access_token": "xOTFiODEPWeoDy6zilXl_N2o2VGlJCmZFdX1HYaxJB3nGYlcpHNikZ9VzYdHcfgjfV_tQ",
+        "refresh_token": "def502007e2aa2ca72848289",
+        "user_type": 1
+    }
+}
+
+
 ```
 
 > Make sure to replace `meowmeowmeow` with your API key.
