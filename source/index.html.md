@@ -4,8 +4,6 @@ title: API Reference
 language_tabs: # must be one of https://git.io/vQNgJ
   - json: Success
   - shell: Error
-  - Request
-  - raw
 
 toc_footers:
   - <a href='http://kokonutstudio.com/'>Kokonutstudio</a>
@@ -113,6 +111,11 @@ No requerido
     }
 }
 ```
+
+<aside class="notice">
+Para autenticar, usar <code>"token_type"</code> y <code>"access_token"</code>
+</aside>
+
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
 POST |login GENERAL | {{url}}/api/login 
@@ -218,8 +221,10 @@ last_name | Apellido del usuairo | 0
 email | Correo electrónico | 1
 password | Contraseña del usuario | 1
 password_confirmation | Confirmación de contraseña | 1
-image | Foto del usuario | 1
+image | Foto del usuario | 0
 company | Nombre de la compañía | 1
+
+Nota: Si se envía passsword, obligatoriamente se debe enviar password_confirmation.
 
 ## Registro secundario de usuarios
 >Response:
@@ -255,7 +260,17 @@ company | Nombre de la compañía | 1
 Permite registrar admins cliente, admins ind, instaladores, supervisores, choferes, moderadores. Se puede registrar varios usuarios a la vez. Para esto se utiliza un body de tipo raw, mandando un arreglo de objetos.
 Al crear un usuario, se le asigna por default un status 1 (Desbloqueado) y la compañía del usuario que hizo el registro.
 
-En caso de ser un super Admin Soltek y si se está dando de alta un chofer, se puede asignar una compañía en específico. 
+En caso de ser un super Admin Soltek el que está registrando usuarios y si está dando de alta un chofer, se puede asignar una compañía en específico. 
+
+Éste endpoint se realizó de esta manera debido a que para el flujo de pasar un admin ind a admin cliente, se pueden dar de alta varios usuarios a la vez (administradores, moderadores, supervisores e instaladores)
+
+Roles para permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+2  | Admin cliente
+3  | Admin ind 
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -448,7 +463,7 @@ Asegurate de reemplazar <code>{{url}}}</code> en tu API URL.
 </aside>
 
 <aside class="notice">
-Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas acerca de vehiculos registrados y vehiculos supervisadod. Todo en relación a la compañía a la que pertenecen.
+Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas acerca de vehiculos registrados y vehiculos supervisados. Todo en relación a la compañía a la que pertenecen.
 </aside>
 
 ### Headers
@@ -488,7 +503,7 @@ period | 2019-01-01  |     1
 }
 ```
 
-Para realizar el cambio de rol, el usuario debe ser de tipo 3 (Admin Ind).
+Para realizar el cambio de rol, el cliente debe ser de tipo 3 (Admin Ind). Al llevar a cabo este servicio, el cliente seleccionado cambiará su tipo a Admin cliente (2), después de haber realizado el proceso de alta de cliente.
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -1322,7 +1337,73 @@ vehicle_id | Identificador de vehículo (id) | 1
 fk_driver | Identificador del chofer (id) | 1
 base_id | Identificador de la base (id) | 1
 
-# Instalación 
+# APP-ENPOINTS
+
+## Registro de usuarios desde la APP
+>Response:
+
+```shell
+{
+    "success": 0,
+    "message": "Hacen falta datos para completar el registro",
+    "data": []
+}
+
+{
+    "success": 0,
+    "message": "No se pudo registrar el usuario",
+    "data": []
+}
+
+{
+    "success": 0,
+    "message": "Hace falta información de suscripción para completar el registro",
+    "data": []
+}
+```
+
+```json
+{
+    "success": 1,
+    "message": "",
+    "data": {
+        "token_type": "Bearer",
+        "expires_in": 604797,
+        "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI...",
+        "user_type": 3
+    }
+}
+```
+Registro utilizado por usuarios que recién descargaron la app. En este registro siempre se asignará por default un tipo de usuario 3 (Admin ind)
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+POST | register user GENERAL | {{url}}/api/register
+
+### Headers
+
+Key  | Value 
+-----|-----
+Accept | application/json
+lang | es_mx
+
+### Body
+
+Type form-data
+
+Key | Value | Mandatory
+----|-------|---------- 
+name | Nombre de usuario | 1
+last_name | Apellido del usuairo | 0
+email | Correo electrónico | 1
+password | Contraseña del usuario | 1
+password_confirmation | Confirmación de contraseña | 1
+image | Foto del usuario | 0
+company | Nombre de la compañía | 1
+
+Nota: Si se envía passsword, obligatoriamente se debe enviar password_confirmation.
+
+## Instalación 
 
 ## Mostrar Kits de Seguridad 
 >Response:
@@ -1555,8 +1636,8 @@ No aplica.
 <code>"installation_description"</code> se utilizará en caso de que en una actuañización se deseé agregar comentarios acerca de la instalación.
 </aside>
 
-# Supervisión
-##Supervisar vechículo
+## Supervisión
+## Supervisar vechículo
 >Response:
 
 ```shell
@@ -1602,7 +1683,7 @@ group_db_id | Identificador de grupo de instalación a supervisar (id) | 1
 comments | Si se desea agregar comentarios acerca de la supervisión | 0
 failed | Enviar "1" si hay alguna falla | 0
 
-## Mostrar Usuarios por caompañía
+## Mostrar Usuarios por compañía
 >Response: 
 
 ```shell
