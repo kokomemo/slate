@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;json&quot;,&quot;shell&quot;,&quot;Request&quot;,&quot;raw&quot;]">
+  <body class="index" data-languages="[&quot;json&quot;,&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -213,8 +213,6 @@
         <div class="lang-selector">
               <a href="#" data-language-name="json">Success</a>
               <a href="#" data-language-name="shell">Error</a>
-              <a href="#" data-language-name="Request">Request</a>
-              <a href="#" data-language-name="raw">raw</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -346,8 +344,14 @@
               </ul>
           </li>
           <li>
-            <a href="#instalacion" class="toc-h1 toc-link" data-title="Instalación">Instalación</a>
+            <a href="#app-enpoints" class="toc-h1 toc-link" data-title="APP-ENPOINTS">APP-ENPOINTS</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#registro-de-usuarios-desde-la-app-2" class="toc-h2 toc-link" data-title="Registro de usuarios desde la APP">Registro de usuarios desde la APP</a>
+                  </li>
+                  <li>
+                    <a href="#instalacion" class="toc-h2 toc-link" data-title="Instalación">Instalación</a>
+                  </li>
                   <li>
                     <a href="#mostrar-kits-de-seguridad" class="toc-h2 toc-link" data-title="Mostrar Kits de Seguridad">Mostrar Kits de Seguridad</a>
                   </li>
@@ -360,16 +364,14 @@
                   <li>
                     <a href="#mostrar-instalacion" class="toc-h2 toc-link" data-title="Mostrar instalación">Mostrar instalación</a>
                   </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#supervision" class="toc-h1 toc-link" data-title="Supervisión">Supervisión</a>
-              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#supervision" class="toc-h2 toc-link" data-title="Supervisión">Supervisión</a>
+                  </li>
                   <li>
                     <a href="#supervisar-vechiculo" class="toc-h2 toc-link" data-title="Supervisar vechículo">Supervisar vechículo</a>
                   </li>
                   <li>
-                    <a href="#mostrar-usuarios-por-caompania" class="toc-h2 toc-link" data-title="Mostrar Usuarios por caompañía">Mostrar Usuarios por caompañía</a>
+                    <a href="#mostrar-usuarios-por-compania" class="toc-h2 toc-link" data-title="Mostrar Usuarios por compañía">Mostrar Usuarios por compañía</a>
                   </li>
               </ul>
           </li>
@@ -496,6 +498,10 @@ Si la respuesta de los servicios son llevadas a cabo satisfactoriamente se devue
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<aside class="notice">
+Para autenticar, usar <code>"token_type"</code> y <code>"access_token"</code>
+</aside>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -674,7 +680,7 @@ Asegurate de reemplazar <code>{{url}}}</code> en tu API URL.
 <tr>
 <td>image</td>
 <td>Foto del usuario</td>
-<td>1</td>
+<td>0</td>
 </tr>
 <tr>
 <td>company</td>
@@ -682,6 +688,8 @@ Asegurate de reemplazar <code>{{url}}}</code> en tu API URL.
 <td>1</td>
 </tr>
 </tbody></table>
+
+<p>Nota: Si se envía passsword, obligatoriamente se debe enviar password_confirmation.</p>
 <h2 id='registro-secundario-de-usuarios'>Registro secundario de usuarios</h2>
 <blockquote>
 <p>Response:</p>
@@ -712,7 +720,31 @@ Asegurate de reemplazar <code>{{url}}}</code> en tu API URL.
 <p>Permite registrar admins cliente, admins ind, instaladores, supervisores, choferes, moderadores. Se puede registrar varios usuarios a la vez. Para esto se utiliza un body de tipo raw, mandando un arreglo de objetos.
 Al crear un usuario, se le asigna por default un status 1 (Desbloqueado) y la compañía del usuario que hizo el registro.</p>
 
-<p>En caso de ser un super Admin Soltek y si se está dando de alta un chofer, se puede asignar una compañía en específico. </p>
+<p>En caso de ser un super Admin Soltek el que está registrando usuarios y si está dando de alta un chofer, se puede asignar una compañía en específico. </p>
+
+<p>Éste endpoint se realizó de esta manera debido a que para el flujo de pasar un admin ind a admin cliente, se pueden dar de alta varios usuarios a la vez (administradores, moderadores, supervisores e instaladores)</p>
+
+<p>Roles para permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Admin cliente</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Admin ind</td>
+</tr>
+</tbody></table>
 
 <table><thead>
 <tr>
@@ -990,7 +1022,7 @@ Asegurate de reemplazar <code>{{url}}}</code> en tu API URL.
 </aside>
 
 <aside class="notice">
-Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas acerca de vehiculos registrados y vehiculos supervisadod. Todo en relación a la compañía a la que pertenecen.
+Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas acerca de vehiculos registrados y vehiculos supervisados. Todo en relación a la compañía a la que pertenecen.
 </aside>
 <h3 id='headers-7'>Headers</h3>
 <table><thead>
@@ -1045,7 +1077,7 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Para realizar el cambio de rol, el usuario debe ser de tipo 3 (Admin Ind).</p>
+<p>Para realizar el cambio de rol, el cliente debe ser de tipo 3 (Admin Ind). Al llevar a cabo este servicio, el cliente seleccionado cambiará su tipo a Admin cliente (2), después de haber realizado el proceso de alta de cliente.</p>
 
 <table><thead>
 <tr>
@@ -2362,7 +2394,118 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>1</td>
 </tr>
 </tbody></table>
-<h1 id='instalacion'>Instalación</h1><h2 id='mostrar-kits-de-seguridad'>Mostrar Kits de Seguridad</h2>
+<h1 id='app-enpoints'>APP-ENPOINTS</h1><h2 id='registro-de-usuarios-desde-la-app-2'>Registro de usuarios desde la APP</h2>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"success"</span>: 0,
+    <span class="s2">"message"</span>: <span class="s2">"Hacen falta datos para completar el registro"</span>,
+    <span class="s2">"data"</span>: <span class="o">[]</span>
+<span class="o">}</span>
+
+<span class="o">{</span>
+    <span class="s2">"success"</span>: 0,
+    <span class="s2">"message"</span>: <span class="s2">"No se pudo registrar el usuario"</span>,
+    <span class="s2">"data"</span>: <span class="o">[]</span>
+<span class="o">}</span>
+
+<span class="o">{</span>
+    <span class="s2">"success"</span>: 0,
+    <span class="s2">"message"</span>: <span class="s2">"Hace falta información de suscripción para completar el registro"</span>,
+    <span class="s2">"data"</span>: <span class="o">[]</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">604797</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI..."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Registro utilizado por usuarios que recién descargaron la app. En este registro siempre se asignará por default un tipo de usuario 3 (Admin ind)</p>
+
+<table><thead>
+<tr>
+<th>HTTP Request</th>
+<th>Name Endpoint</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>POST</td>
+<td>register user GENERAL</td>
+<td>{{url}}/api/register</td>
+</tr>
+</tbody></table>
+<h3 id='headers-26'>Headers</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>lang</td>
+<td>es_mx</td>
+</tr>
+</tbody></table>
+<h3 id='body-23'>Body</h3>
+<p>Type form-data</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th>Mandatory</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Nombre de usuario</td>
+<td>1</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>Apellido del usuairo</td>
+<td>0</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Correo electrónico</td>
+<td>1</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Contraseña del usuario</td>
+<td>1</td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td>Confirmación de contraseña</td>
+<td>1</td>
+</tr>
+<tr>
+<td>image</td>
+<td>Foto del usuario</td>
+<td>0</td>
+</tr>
+<tr>
+<td>company</td>
+<td>Nombre de la compañía</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+<p>Nota: Si se envía passsword, obligatoriamente se debe enviar password_confirmation.</p>
+<h2 id='instalacion'>Instalación</h2><h2 id='mostrar-kits-de-seguridad'>Mostrar Kits de Seguridad</h2>
 <blockquote>
 <p>Response:</p>
 </blockquote>
@@ -2433,7 +2576,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/install/security-kit-list</td>
 </tr>
 </tbody></table>
-<h3 id='headers-26'>Headers</h3>
+<h3 id='headers-27'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2445,7 +2588,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-23'>Body</h3>
+<h3 id='body-24'>Body</h3>
 <p>No aplica.</p>
 <h2 id='instalar-kit-de-seguridad'>Instalar kit de seguridad</h2>
 <blockquote>
@@ -2507,7 +2650,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/install/install?=</td>
 </tr>
 </tbody></table>
-<h3 id='headers-27'>Headers</h3>
+<h3 id='headers-28'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2519,7 +2662,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-24'>Body</h3>
+<h3 id='body-25'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2593,7 +2736,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/install/search</td>
 </tr>
 </tbody></table>
-<h3 id='headers-28'>Headers</h3>
+<h3 id='headers-29'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2605,7 +2748,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-25'>Body</h3>
+<h3 id='body-26'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2681,7 +2824,7 @@ Servicio sin funcionar. <code>REVISAR</code>
 <td>{{url}}/api/install/show/{vehicle_id}</td>
 </tr>
 </tbody></table>
-<h3 id='headers-29'>Headers</h3>
+<h3 id='headers-30'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2693,13 +2836,13 @@ Servicio sin funcionar. <code>REVISAR</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-26'>Body</h3>
+<h3 id='body-27'>Body</h3>
 <p>No aplica.</p>
 
 <aside class="notice">
 <code>"installation_description"</code> se utilizará en caso de que en una actuañización se deseé agregar comentarios acerca de la instalación.
 </aside>
-<h1 id='supervision'>Supervisión</h1><h2 id='supervisar-vechiculo'>Supervisar vechículo</h2>
+<h2 id='supervision'>Supervisión</h2><h2 id='supervisar-vechiculo'>Supervisar vechículo</h2>
 <blockquote>
 <p>Response:</p>
 </blockquote>
@@ -2733,7 +2876,7 @@ Servicio sin funcionar. <code>REVISAR</code>
 <td>{{url}}/api/install/revision</td>
 </tr>
 </tbody></table>
-<h3 id='headers-30'>Headers</h3>
+<h3 id='headers-31'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2745,7 +2888,7 @@ Servicio sin funcionar. <code>REVISAR</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-27'>Body</h3>
+<h3 id='body-28'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2778,7 +2921,7 @@ Servicio sin funcionar. <code>REVISAR</code>
 <td>0</td>
 </tr>
 </tbody></table>
-<h2 id='mostrar-usuarios-por-caompania'>Mostrar Usuarios por caompañía</h2>
+<h2 id='mostrar-usuarios-por-compania'>Mostrar Usuarios por compañía</h2>
 <blockquote>
 <p>Response: </p>
 </blockquote>
@@ -2887,7 +3030,7 @@ Servicio sin funcionar. <code>REVISAR</code>
 <td>{{url}}/api/staff/dashboard-clients</td>
 </tr>
 </tbody></table>
-<h3 id='headers-31'>Headers</h3>
+<h3 id='headers-32'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2899,7 +3042,7 @@ Servicio sin funcionar. <code>REVISAR</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-28'>Body</h3>
+<h3 id='body-29'>Body</h3>
 <p>No aplica.</p>
 
       </div>
@@ -2907,8 +3050,6 @@ Servicio sin funcionar. <code>REVISAR</code>
           <div class="lang-selector">
                 <a href="#" data-language-name="json">Success</a>
                 <a href="#" data-language-name="shell">Error</a>
-                <a href="#" data-language-name="Request">Request</a>
-                <a href="#" data-language-name="raw">raw</a>
           </div>
       </div>
     </div>
