@@ -593,6 +593,8 @@ Example id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 }
 ```
 
+Las compañías podrán consultar los choferes que tienen registrados.
+
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
 GET | show drivers STAFF | {{url}}/api/staff/show-drivers
