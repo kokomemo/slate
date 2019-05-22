@@ -1686,7 +1686,7 @@ company | Nombre de la compañía | 1
 
 Nota: Si se envía passsword, obligatoriamente se debe enviar password_confirmation.
 
-# Vechículos
+# Vehículos
 
 ## Buscador de vehiculos
 >Response:
