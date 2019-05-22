@@ -27,6 +27,14 @@ Si la respuesta de los servicios son llevadas a cabo satisfactoriamente se devue
 
 # GENERIC END-POINTS
 
+## Estatus de usuarios
+
+id | Estatus 
+---|---------
+ 1 | Desbloqueado
+ 2 | Bloqueado
+ 3 | Eliminado
+
 ## Tipo de usuarios
 >Response: 
 
@@ -534,6 +542,92 @@ Key   | Value | Mandatory
 ---------|-------------|----------
 period | 2019-01-01  |     1
 
+# Compañías
+## Limite de usuarios y vehículos
+>Response:
+
+```shell
+{
+    "success": 0,
+    "message": "Hacen falta datos para completar el registro",
+    "data": null
+}
+```
+
+```json
+{
+    "success": 1,
+    "message": "Actualización de limites correcta",
+    "data": null
+}
+```
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+POST | update limit subscription | {{url}}/api/staff/update-subscription-limit
+
+### Headers
+
+Key  | Value 
+-----|-----
+Accept | application/json
+lang | es_mx
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+### Body
+
+* Type form-data
+
+Key   | Value | Mandatory
+---------|-------------|----------
+fk_company | Identificador de la compañía a modificar |     1
+users_limit | Limite de usuarios a registrar |     1
+vehicles_limit | Limite de vehiculos a registrar |     1
+
+## Bloquear/Desbloquear compañías
+>Response:
+
+```shell
+{
+    "success": 0,
+    "message": "Hacen falta datos para completar el registro",
+    "data": null
+}
+```
+
+```json
+{
+    "success": 1,
+    "message": "Comapañia actualizada correctamente",
+    "data": ""
+}
+```
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+POST | activate/disable company | {{url}}/api/staff/activate-company
+
+### Headers
+
+Key  | Value 
+-----|-----
+Accept | application/json
+lang | es_mx
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+### Body
+
+* Type form-data
+
+Key   | Value | Mandatory
+---------|-------------|----------
+fk_company | Identificador de la compañía a modificar |     1
+active | estatus de compañía |     1
+
+<aside class="notice">
+<code>active</code> 1 = Desbloqueada 0 = Bloqueada
+</aside>
+
 # Usuarios
 
 ## Convertir Admin ind a Admin cliente 
@@ -543,6 +637,12 @@ period | 2019-01-01  |     1
 {
     "success": 0,
     "message": "Tipo de usuario incorrecto para realizar el cambio",
+    "data": null
+}
+
+{
+    "success": 0,
+    "message": "Hubo un problema al actualizar la compañia",
     "data": null
 }
 ```
