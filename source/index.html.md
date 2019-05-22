@@ -26,6 +26,7 @@ Si la respuesta de los servicios son llevadas a cabo satisfactoriamente se devue
 </aside>
 
 # GENERIC END-POINTS
+
 ## Tipo de usuarios
 >Response: 
 
@@ -160,6 +161,111 @@ GET | logout GENERAL | {{url}}/api/logout
 Key  | Value 
 -----|-----
 Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+### Body
+
+No requerido.
+
+## Recuperar contraseña
+>Response:
+
+```shell
+{
+    "success": 0,
+    "message": "El correo electronico no se encuentra registrado",
+    "data": null
+}
+
+{
+    "success": 0,
+    "message": "El correo de recuperación no pudo ser enviado",
+    "data": null
+}
+```
+
+```json
+{
+    "success": 0,
+    "message": "Correo de recuperación enviado exitosamente",
+    "data": null
+}
+```
+
+Se envía correo electronico con un enlace tokenizado, el cual al hacer clic se direccionará a una ruta del front-end, en la cual se solicitará la contraseña nueva y el token de recuperación (éste último no lo ingresará el usuario). Solicitados en el endpoint de Reiniciar Contraseña
+
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+POST | restore password GENERAL | {{url}}/api/restore_password 
+
+### Headers
+
+Key  | Value 
+-----|-----
+Accept | application/json
+lang | es_mx
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+### Body
+
+* Type form-data
+
+Key   | Value | Mandatory
+---------|-------------|----------
+email | Correo electrónico del usuario  |     1
+
+## Reiniciar Contraseña
+>Response: 
+
+```shell
+{
+    "success": 0,
+    "message": "El token no es valido",
+    "data": null
+}
+
+{
+    "success": 0,
+    "message": "Las contraseñas no coinciden",
+    "data": null
+}
+
+{
+    "success": 0,
+    "message": "Hace falta información para atender la petición",
+    "data": null
+}
+```
+
+```json
+{
+    "success": 1,
+    "message": "Contraseña actualizada correctamente",
+    "data": null
+}
+```
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+POST | reset password GENERAL | {{url}}/api/reset_password
+
+### Headers
+
+Key  | Value 
+-----|-----
+Accept | application/json
+lang | es_mx
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+### Body
+
+* Type form-data
+
+Key   | Value | Mandatory
+---------|-------------|----------
+password | Correo electrónico del usuario  |     1
+password_confirmation | Confirmación de correo electrónico  |     1
+token | Token de recuperación |     1
 
 ## Registro secundario de usuarios
 >Response:
@@ -353,7 +459,18 @@ image1 | User image  |     0
 type | User type  |     0
 
 # CMS-ENDPOINTS
+
+Sólo podrán acceder a CMS los siguientes usuario:
+
+id | Rol
+---|------
+ 1 | Super Admin
+ 2 | Admin cliente
+ 3 | Admin ind
+ 9 | Moderador 
+
 # Dashboard
+
 ## Dashboard
 >Response: 
 
@@ -455,6 +572,120 @@ Key  | Value
 Accept | application/json
 lang | es_mx
 Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+## Mostrar Usuarios por compañía
+>Response: 
+
+```shell
+```
+
+```json
+{
+    "success": 1,
+    "message": null,
+    "data": {
+        "KokonutStudio": [
+            {
+                "users": {
+                    "Super Admin": [
+                        {
+                            "id": "eyJpdiI6IkI4ZlwvTzlJcVpWeGdPelUxemZhTHdnPT0i...",
+                            "name": "Administrador",
+                            "last_name": "Kokonut",
+                            "email": "kokonut@kokonutstudio.com",
+                            "created_at": "2019-05-16 15:48:03",
+                            "updated_at": "2019-05-21 16:09:11"
+                        }
+                    ],
+                    "Admin Cliente": [
+                        {
+                            "id": "eyJpdiI6InZcL0twYVc1ekM4WkRERmlzUHlHQ3...",
+                            "name": "José",
+                            "last_name": "",
+                            "email": "jaso111n@efe.com",
+                            "created_at": "2019-05-16 15:54:59",
+                            "updated_at": "2019-05-20 21:39:42"
+                        },
+                        {
+                            "id": "eyJpdiI6Im12WGhMQTlFSTNaVzJQK1wvZmdCd...",
+                            "name": "pepe2",
+                            "last_name": "",
+                            "email": "jaso1211n@efe.com",
+                            "created_at": "2019-05-16 15:55:51",
+                            "updated_at": null
+                        }
+                    ],
+                    "Supervisor": [
+                        {
+                            "id": "eyJpdiI6IlVYdHdKNUdpZEpySVBwQU9tXC9DTjBnPT0...",
+                            "name": "Supervisor 1",
+                            "last_name": "",
+                            "email": "supervisor1@hotmail.com",
+                            "created_at": "2019-05-16 16:18:49",
+                            "updated_at": null
+                        }
+                    ],
+                    "Instalador": [
+                        {
+                            "id": "eyJpdiI6ImlkZEpWQnY1Z3d0ZVlMMTVUc1pCYUE...",
+                            "name": "Instalador 1",
+                            "last_name": "",
+                            "email": "instalador1@hotmail.com",
+                            "created_at": "2019-05-16 16:18:13",
+                            "updated_at": null
+                        },
+                        {
+                            "id": "eyJpdiI6IngzbVZtTytPS09hNXVmM2FXU0t6OUE9PS...",
+                            "name": "InstaladorPrueba",
+                            "last_name": "",
+                            "email": "insta_p@gmaiil.com",
+                            "created_at": "2019-05-17 17:02:52",
+                            "updated_at": null
+                        }
+                    ],
+                    "Chofer": [
+                        {
+                            "id": "eyJpdiI6IndQTXBtRVJ5N0dJajI1MjROTi...",
+                            "name": "YYY",
+                            "last_name": "Perez",
+                            "email": null,
+                            "created_at": "2019-05-16 22:28:26",
+                            "updated_at": null
+                        },
+                        {
+                            "id": "eyJpdiI6IlwvazlDT3E5T3haUXduOXl5NTZiUkJBPT0...",
+                            "name": "Soltek",
+                            "last_name": "",
+                            "email": null,
+                            "created_at": "2019-05-17 17:33:48",
+                            "updated_at": "2019-05-17 17:34:48"
+                        }
+                    ]
+                },
+                "vehicles": {
+                    "total_vehicles": 1
+                }
+            }
+        ]
+     }
+  }
+```
+
+Mustra todos los usuarios separados por rol y total de vehiculos pertenecientes a cada compañía. Servicio utilizado para mostrar listado de Admins cliente en CMS
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+GET |  get users by company| {{url}}/api/staff/dashboard-clients
+
+### Headers
+
+Key  | Value 
+-----|-----
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+### Body
+
+No aplica.
 
 ## Eliminar Usuarios
 >Response:
@@ -1276,7 +1507,22 @@ base_id | Identificador de la base (id) | 1
 
 # APP-ENPOINTS
 
-## Registro de usuarios desde la APP
+Sólo podrán acceder a la APP los siguientes usuario: 
+
+id | Rol
+---|------
+ 1 | Super Admin
+ 2 | Admin cliente
+ 3 | Admin ind
+ 4 | Supervisor Soltek
+ 5 | Instalador Soltek
+ 6 | Supervisor cliente
+ 7 | Instalador cliente 
+ 9 | Moderador 
+
+# Usuarios
+
+## Registro de usuarios
 >Response:
 
 ```shell
@@ -1340,7 +1586,196 @@ company | Nombre de la compañía | 1
 
 Nota: Si se envía passsword, obligatoriamente se debe enviar password_confirmation.
 
-## Instalación 
+# Vechículos
+
+## Buscador de vehiculos
+>Response:
+
+```shell
+{
+    "success": 0,
+    "message": "Información ingresada no coincide con el vehículo registrado",
+    "data": null
+}
+
+{
+    "success": 0,
+    "message": "No se pudo encontrar el vehículo",
+    "data": null
+}
+```
+
+```json
+```
+
+Este servicio se utiliza para filtrar información de un vehículo específico por número de serie o por número económico.
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+POST | find vehicle INSTALL | {{url}}/api/install/search
+
+### Headers
+
+Key  | Value 
+-----|-----
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+### Body
+
+* Type form-data
+
+Key | Value | Mandatory
+----|-------|-----------
+vehicle_economic | Número económico| 0
+vehicle_id | Número de serie | 0
+
+<aside class="warning">
+Servicio sin funcionar. <code>REVISAR</code>. No se realiza búsqueda.
+</aside>
+
+## Crear vehiculo
+>Response: 
+
+```shell
+{
+    "success": 1,
+    "message": "No se pudo crear el vehiculo",
+    "data": null
+}
+```
+
+```json
+{
+    "success": 1,
+    "message": "Vehículo creado correctamente",
+    "data": null
+}
+```
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+POST | create vehicle STAFF | {{url}}/api/staff/vehicle
+
+<aside class="notice">
+Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
+</aside>
+
+### Headers
+
+Key  | Value 
+-----|-----
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+### Body
+
+* Type form-data
+
+Key   | Description | Mandatory
+---------|-------------|----------
+vehicle_id | Numero de serie  |     1
+tanks | Numero de tanques  |     1
+vehicle_economic | Numero economico  |     0
+fk_vehicle_model | Modelo id  |     1
+base_id | Base id  |     1
+fk_driver_id | Chofer asignado  |     0
+
+## Eliminiar vehiculo
+>Response:
+
+```shell
+{
+    "success": 1,
+    "message": "No se logró elimar vehiculo",
+    "data": null
+}
+```
+
+```json
+{
+    "success": 1,
+    "message": "Vehículo deshabilitado correctamente",
+    "data": null
+}
+```
+
+El vehiculo no se elimina de la base de datos, sólo se cambia el status y se deja de mostrar en la vista.
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+DELETE | disable vehicle STAFF | {{url}}/api/staff/vehicle/vehicle_id
+
+<aside class="notice">
+Asegurate de reemplazar <code>{{url}}}</code>por el API URL. 
+</aside>
+
+<aside class="notice">
+Example id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
+</aside>
+
+### Headers
+
+Key  | Value 
+-----|-----
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+### URL
+Es necesario pasar vehicle_id (id de vehiculo, NO numero de serie) al final de la URL del endpoint
+
+## Actualizar vehiculo
+>Response: 
+
+```shell
+{
+    "success": 1,
+    "message": "Hubo un error al actualizar vehiculo",
+    "data": null
+}
+```
+
+```json
+{
+    "success": 1,
+    "message": "Los datos se actualizaron correctamente",
+    "data": null
+}
+```
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+UPDATE | update vehicle STAFF | {{url}}/api/staff/vehicle/vehicle_id
+
+<aside class="notice">
+Asegurate de reemplazar <code>{{url}}}</code>por el API URL. 
+</aside>
+
+<aside class="notice">
+Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
+</aside>
+
+### Headers
+
+Key  | Value 
+-----|-----
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+Content-Type | application/x-www-form-urlencoded
+
+### URL
+Es necesario pasar vehicle_id (id de vehiculo, NO numero de serie) al final de la URL del endpoint
+
+### Body
+
+* Type x-www-form-urlencoded
+
+Key   | Description | Mandatory
+---------|-------------|----------
+vehicle_id | Numero de serie  |     0
+points_revision | Punto de revision  |     0
+tanks | Numero de tanques  |     0
+vehicle_economic | Numero economico  |     0
+fk_vehicle_model | Modelo id  |     0
+fk_driver_id | Chofer asignado  |     0
+
+# Instalación 
 
 ## Mostrar Kits de Seguridad 
 >Response:
@@ -1400,6 +1835,9 @@ Nota: Si se envía passsword, obligatoriamente se debe enviar password_confirmat
     ]
 }
 ```
+
+Se muestra listado de kits de seguridad con sus grupos de instalación pertenecientes.
+
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
 GET | list security kits INSTALL | {{url}}/api/install/security-kit-list
@@ -1463,57 +1901,12 @@ Autorization | Bearer eyJ0eXAiOiJKV1Q...
 
 Key | Value | Mandatory
 ----|-------|-----------
-image | Foto de cada kit instalado | 1
+image | Foto de cada punto instalado | 1
 foliate_stamp | Sello foliado de cada pieza instalada | 1
 vehicle_id | Identificador de vehiculo (id) al cual se le realizará la inatalación | 1
 security_kit_id | Identificador de kit a instalar (id) | 1
 group_installation_id | Identificador de grupo de instalación (id) | 1 
 revision_point_id | Identificador de punto de revisión (id) | 1
-
-## Buscador de vehiculos
->Response:
-
-```shell
-{
-    "success": 0,
-    "message": "Información ingresada no coincide con el vehículo registrado",
-    "data": null
-}
-
-{
-    "success": 0,
-    "message": "No se pudo encontrar el vehículo",
-    "data": null
-}
-```
-
-```json
-```
-
-Este servicio se utiliza para filtrar información de un vehículo específico por número de serie o por número económico.
-
-HTTP Request  | Name Endpoint |  Endpoint
---------------|---------------|-----------
-POST | find vehicle INSTALL | {{url}}/api/install/search
-
-### Headers
-
-Key  | Value 
------|-----
-Autorization | Bearer eyJ0eXAiOiJKV1Q...
-
-### Body
-
-* Type form-data
-
-Key | Value | Mandatory
-----|-------|-----------
-vehicle_economic | Número económico| 0
-vehicle_id | Número de serie | 0
-
-<aside class="warning">
-Servicio sin funcionar. <code>REVISAR</code> 
-</aside>
 
 ## Mostrar instalación 
 >Response:
@@ -1538,7 +1931,7 @@ Servicio sin funcionar. <code>REVISAR</code>
             "security_kit": "Antisifon Tanksafe Impregnable",
             "group_installation": "Tanque piloto",
             "group_db_id": 1,
-            "revision_point": "Respiradero",
+            "revision_point": "Antisifón",
             "revision_db_id": 2,
             "installation_description": "",
             "installation_checked": 0,
@@ -1553,7 +1946,7 @@ Servicio sin funcionar. <code>REVISAR</code>
 }
 ```
 
-Se muestra instalación realizada de vehículo específico.
+Se muestra instalación realizada de vehículo. (Para Instalador y Supervisor)
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -1570,10 +1963,10 @@ Autorization | Bearer eyJ0eXAiOiJKV1Q...
 No aplica.
 
 <aside class="notice">
-<code>"installation_description"</code> se utilizará en caso de que en una actuañización se deseé agregar comentarios acerca de la instalación.
+<code>"installation_description"</code> se utilizará en caso de que en una actualización se deseé agregar comentarios acerca de la instalación.
 </aside>
 
-## Supervisión
+# Supervisión
 ## Supervisar vechículo
 >Response:
 
@@ -1620,109 +2013,57 @@ group_db_id | Identificador de grupo de instalación a supervisar (id) | 1
 comments | Si se desea agregar comentarios acerca de la supervisión | 0
 failed | Enviar "1" si hay alguna falla | 0
 
-## Mostrar Usuarios por compañía
->Response: 
+<aside class="notice">
+<code>"coments"</code> se utilizará en caso de que en una actualización se deseé agregar comentarios acerca de la supervisión.
+</aside>
+
+# Choferes
+
+## Mostrar Sólo choferes
+>Response:
 
 ```shell
+
 ```
 
 ```json
 {
     "success": 1,
     "message": null,
-    "data": {
-        "KokonutStudio": [
-            {
-                "users": {
-                    "Super Admin": [
-                        {
-                            "id": "eyJpdiI6IkI4ZlwvTzlJcVpWeGdPelUxemZhTHdnPT0i...",
-                            "name": "Administrador",
-                            "last_name": "Kokonut",
-                            "email": "memo@gmail.com",
-                            "created_at": "2019-05-16 15:48:03",
-                            "updated_at": "2019-05-21 16:09:11"
-                        }
-                    ],
-                    "Admin Cliente": [
-                        {
-                            "id": "eyJpdiI6InZcL0twYVc1ekM4WkRERmlzUHlHQ3...",
-                            "name": "José",
-                            "last_name": "",
-                            "email": "jaso111n@efe.com",
-                            "created_at": "2019-05-16 15:54:59",
-                            "updated_at": "2019-05-20 21:39:42"
-                        },
-                        {
-                            "id": "eyJpdiI6Im12WGhMQTlFSTNaVzJQK1wvZmdCd...",
-                            "name": "pepe2",
-                            "last_name": "",
-                            "email": "jaso1211n@efe.com",
-                            "created_at": "2019-05-16 15:55:51",
-                            "updated_at": null
-                        }
-                    ],
-                    "Supervisor": [
-                        {
-                            "id": "eyJpdiI6IlVYdHdKNUdpZEpySVBwQU9tXC9DTjBnPT0...",
-                            "name": "Supervisor 1",
-                            "last_name": "",
-                            "email": "supervisor1@hotmail.com",
-                            "created_at": "2019-05-16 16:18:49",
-                            "updated_at": null
-                        }
-                    ],
-                    "Instalador": [
-                        {
-                            "id": "eyJpdiI6ImlkZEpWQnY1Z3d0ZVlMMTVUc1pCYUE...",
-                            "name": "Instalador 1",
-                            "last_name": "",
-                            "email": "instalador1@hotmail.com",
-                            "created_at": "2019-05-16 16:18:13",
-                            "updated_at": null
-                        },
-                        {
-                            "id": "eyJpdiI6IngzbVZtTytPS09hNXVmM2FXU0t6OUE9PS...",
-                            "name": "InstaladorPrueba",
-                            "last_name": "",
-                            "email": "insta_p@gmaiil.com",
-                            "created_at": "2019-05-17 17:02:52",
-                            "updated_at": null
-                        }
-                    ],
-                    "Chofer": [
-                        {
-                            "id": "eyJpdiI6IndQTXBtRVJ5N0dJajI1MjROTi...",
-                            "name": "YYY",
-                            "last_name": "Perez",
-                            "email": null,
-                            "created_at": "2019-05-16 22:28:26",
-                            "updated_at": null
-                        },
-                        {
-                            "id": "eyJpdiI6IlwvazlDT3E5T3haUXduOXl5NTZiUkJBPT0...",
-                            "name": "Soltek",
-                            "last_name": "",
-                            "email": null,
-                            "created_at": "2019-05-17 17:33:48",
-                            "updated_at": "2019-05-17 17:34:48"
-                        }
-                    ]
-                },
-                "vehicles": {
-                    "total_vehicles": 1
-                }
-            }
-        ]
-     }
-  }
+    "data": [
+        {
+            "name": "Chofer 1",
+            "last_name": "Chofer",
+            "driver_number": "",
+            "status": 1,
+            "company": "KokonutStudio",
+            "user_id": 8,
+            "incidents": 0,
+            "status_description": "Active"
+        },
+        {
+            "name": "Chofer 2",
+            "last_name": "Chofer",
+            "driver_number": "",
+            "status": 1,
+            "company": "KokonutStudio",
+            "user_id": 25,
+            "incidents": 0,
+            "status_description": "Active"
+        }
+    ]
+}
 ```
 
-Mustra usuarios y total de vehiculos pertenecientes a cada compañía 
+Las compañías podrán consultar los choferes que tienen registrados.
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
-GET |  get users by company| {{url}}/api/staff/dashboard-clients
+GET | show drivers STAFF | {{url}}/api/staff/show-drivers
+
+<aside class="notice">
+Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
+</aside>
 
 ### Headers
 
@@ -1731,8 +2072,8 @@ Key  | Value
 Autorization | Bearer eyJ0eXAiOiJKV1Q...
 
 ### Body
+No requerido
 
-No aplica.
 
 
 
