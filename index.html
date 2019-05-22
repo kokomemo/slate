@@ -231,6 +231,9 @@
             <a href="#generic-end-points" class="toc-h1 toc-link" data-title="GENERIC END-POINTS">GENERIC END-POINTS</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#estatus-de-usuarios" class="toc-h2 toc-link" data-title="Estatus de usuarios">Estatus de usuarios</a>
+                  </li>
+                  <li>
                     <a href="#tipo-de-usuarios" class="toc-h2 toc-link" data-title="Tipo de usuarios">Tipo de usuarios</a>
                   </li>
                   <li>
@@ -264,6 +267,17 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#dashboard-2" class="toc-h2 toc-link" data-title="Dashboard">Dashboard</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#companias" class="toc-h1 toc-link" data-title="Compañías">Compañías</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#limite-de-usuarios-y-vehiculos" class="toc-h2 toc-link" data-title="Limite de usuarios y vehículos">Limite de usuarios y vehículos</a>
+                  </li>
+                  <li>
+                    <a href="#bloquear-desbloquear-companias" class="toc-h2 toc-link" data-title="Bloquear/Desbloquear compañías">Bloquear/Desbloquear compañías</a>
                   </li>
               </ul>
           </li>
@@ -433,7 +447,27 @@
 <aside class="notice">
 Si la respuesta de los servicios son llevadas a cabo satisfactoriamente se devuelve como Success <code>1</code> y si no, se devuelve <code>0</code>.
 </aside>
-<h1 id='generic-end-points'>GENERIC END-POINTS</h1><h2 id='tipo-de-usuarios'>Tipo de usuarios</h2>
+<h1 id='generic-end-points'>GENERIC END-POINTS</h1><h2 id='estatus-de-usuarios'>Estatus de usuarios</h2>
+<table><thead>
+<tr>
+<th>id</th>
+<th>Estatus</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Desbloqueado</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bloqueado</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Eliminado</td>
+</tr>
+</tbody></table>
+<h2 id='tipo-de-usuarios'>Tipo de usuarios</h2>
 <blockquote>
 <p>Response: </p>
 </blockquote>
@@ -1173,6 +1207,157 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
 <td>1</td>
 </tr>
 </tbody></table>
+<h1 id='companias'>Compañías</h1><h2 id='limite-de-usuarios-y-vehiculos'>Limite de usuarios y vehículos</h2>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"success"</span>: 0,
+    <span class="s2">"message"</span>: <span class="s2">"Hacen falta datos para completar el registro"</span>,
+    <span class="s2">"data"</span>: null
+<span class="o">}</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Actualización de limites correcta"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>HTTP Request</th>
+<th>Name Endpoint</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>POST</td>
+<td>update limit subscription</td>
+<td>{{url}}/api/staff/update-subscription-limit</td>
+</tr>
+</tbody></table>
+<h3 id='headers-9'>Headers</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>lang</td>
+<td>es_mx</td>
+</tr>
+<tr>
+<td>Autorization</td>
+<td>Bearer eyJ0eXAiOiJKV1Q...</td>
+</tr>
+</tbody></table>
+<h3 id='body-10'>Body</h3>
+<ul>
+<li>Type form-data</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th>Mandatory</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fk_company</td>
+<td>Identificador de la compañía a modificar</td>
+<td>1</td>
+</tr>
+<tr>
+<td>users_limit</td>
+<td>Limite de usuarios a registrar</td>
+<td>1</td>
+</tr>
+<tr>
+<td>vehicles_limit</td>
+<td>Limite de vehiculos a registrar</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h2 id='bloquear-desbloquear-companias'>Bloquear/Desbloquear compañías</h2>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"success"</span>: 0,
+    <span class="s2">"message"</span>: <span class="s2">"Hacen falta datos para completar el registro"</span>,
+    <span class="s2">"data"</span>: null
+<span class="o">}</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comapañia actualizada correctamente"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>HTTP Request</th>
+<th>Name Endpoint</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>POST</td>
+<td>activate/disable company</td>
+<td>{{url}}/api/staff/activate-company</td>
+</tr>
+</tbody></table>
+<h3 id='headers-10'>Headers</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>lang</td>
+<td>es_mx</td>
+</tr>
+<tr>
+<td>Autorization</td>
+<td>Bearer eyJ0eXAiOiJKV1Q...</td>
+</tr>
+</tbody></table>
+<h3 id='body-11'>Body</h3>
+<ul>
+<li>Type form-data</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th>Mandatory</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fk_company</td>
+<td>Identificador de la compañía a modificar</td>
+<td>1</td>
+</tr>
+<tr>
+<td>active</td>
+<td>estatus de compañía</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+<code>active</code> 1 = Desbloqueada 0 = Bloqueada
+</aside>
 <h1 id='usuarios'>Usuarios</h1><h2 id='convertir-admin-ind-a-admin-cliente'>Convertir Admin ind a Admin cliente</h2>
 <blockquote>
 <p>Response: </p>
@@ -1180,6 +1365,12 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
 <pre class="highlight shell tab-shell"><code><span class="o">{</span>
     <span class="s2">"success"</span>: 0,
     <span class="s2">"message"</span>: <span class="s2">"Tipo de usuario incorrecto para realizar el cambio"</span>,
+    <span class="s2">"data"</span>: null
+<span class="o">}</span>
+
+<span class="o">{</span>
+    <span class="s2">"success"</span>: 0,
+    <span class="s2">"message"</span>: <span class="s2">"Hubo un problema al actualizar la compañia"</span>,
     <span class="s2">"data"</span>: null
 <span class="o">}</span>
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -1207,7 +1398,7 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
 <aside class="notice">
 Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
 </aside>
-<h3 id='headers-9'>Headers</h3>
+<h3 id='headers-11'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1336,7 +1527,7 @@ Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>{{url}}/api/staff/dashboard-clients</td>
 </tr>
 </tbody></table>
-<h3 id='headers-10'>Headers</h3>
+<h3 id='headers-12'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1348,7 +1539,7 @@ Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-10'>Body</h3>
+<h3 id='body-12'>Body</h3>
 <p>No aplica.</p>
 <h2 id='eliminar-usuarios'>Eliminar Usuarios</h2>
 <blockquote>
@@ -1384,7 +1575,7 @@ Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <aside class="notice">
 Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
 </aside>
-<h3 id='headers-11'>Headers</h3>
+<h3 id='headers-13'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1398,7 +1589,7 @@ Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 </tbody></table>
 <h3 id='url'>URL</h3>
 <p>Es necesario pasar user_id al final de la URL del endpoint</p>
-<h3 id='body-11'>Body</h3>
+<h3 id='body-13'>Body</h3>
 <p>No requerido</p>
 <h2 id='actualizar-usuarios'>Actualizar Usuarios</h2>
 <blockquote>
@@ -1434,7 +1625,7 @@ Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>{{url}}/api/update</td>
 </tr>
 </tbody></table>
-<h3 id='headers-12'>Headers</h3>
+<h3 id='headers-14'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1454,7 +1645,7 @@ Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-12'>Body</h3>
+<h3 id='body-14'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -1566,7 +1757,7 @@ Example id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </aside>
-<h3 id='headers-13'>Headers</h3>
+<h3 id='headers-15'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1578,7 +1769,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-13'>Body</h3>
+<h3 id='body-15'>Body</h3>
 <p>No requerido</p>
 <h2 id='mostrar-usuarios-todos'>Mostrar usuarios (TODOS)</h2>
 <blockquote>
@@ -1630,7 +1821,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </aside>
-<h3 id='headers-14'>Headers</h3>
+<h3 id='headers-16'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1642,7 +1833,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-14'>Body</h3>
+<h3 id='body-16'>Body</h3>
 <p>No requerido</p>
 <h1 id='vehiculos'>Vehículos</h1><h2 id='mostrar-vehiculos-todos'>Mostrar vehiculos (TODOS)</h2>
 <blockquote>
@@ -1684,7 +1875,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </aside>
-<h3 id='headers-15'>Headers</h3>
+<h3 id='headers-17'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1704,7 +1895,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-15'>Body</h3>
+<h3 id='body-17'>Body</h3>
 <p>No requerido</p>
 <h2 id='crear-vehiculo'>Crear vehiculo</h2>
 <blockquote>
@@ -1738,7 +1929,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </aside>
-<h3 id='headers-16'>Headers</h3>
+<h3 id='headers-18'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1750,7 +1941,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-16'>Body</h3>
+<h3 id='body-18'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -1831,7 +2022,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="warning">
 Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo, correspondiente en la base de datos
 </aside>
-<h3 id='headers-17'>Headers</h3>
+<h3 id='headers-19'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1881,7 +2072,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="warning">
 Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo, correspondiente en la base de datos
 </aside>
-<h3 id='headers-18'>Headers</h3>
+<h3 id='headers-20'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1899,7 +2090,7 @@ Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo,
 </tbody></table>
 <h3 id='url-3'>URL</h3>
 <p>Es necesario pasar vehicle_id (id de vehiculo, NO numero de serie) al final de la URL del endpoint</p>
-<h3 id='body-17'>Body</h3>
+<h3 id='body-19'>Body</h3>
 <ul>
 <li>Type x-www-form-urlencoded</li>
 </ul>
@@ -2001,7 +2192,7 @@ Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo,
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL. 
 </aside>
-<h3 id='headers-19'>Headers</h3>
+<h3 id='headers-21'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2021,7 +2212,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-18'>Body</h3>
+<h3 id='body-20'>Body</h3>
 <p>No requerido</p>
 <h2 id='crear-marcas-y-modelos'>Crear Marcas y Modelos</h2>
 <blockquote>
@@ -2057,7 +2248,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/create-model-vehicle</td>
 </tr>
 </tbody></table>
-<h3 id='headers-20'>Headers</h3>
+<h3 id='headers-22'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2077,7 +2268,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-19'>Body</h3>
+<h3 id='body-21'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2143,7 +2334,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/delete-model-vehicle</td>
 </tr>
 </tbody></table>
-<h3 id='headers-21'>Headers</h3>
+<h3 id='headers-23'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2163,7 +2354,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-20'>Body</h3>
+<h3 id='body-22'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2242,7 +2433,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL. 
 </aside>
-<h3 id='headers-22'>Headers</h3>
+<h3 id='headers-24'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2296,7 +2487,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/update/driver</td>
 </tr>
 </tbody></table>
-<h3 id='headers-23'>Headers</h3>
+<h3 id='headers-25'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2316,7 +2507,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-21'>Body</h3>
+<h3 id='body-23'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2383,7 +2574,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/create-base</td>
 </tr>
 </tbody></table>
-<h3 id='headers-24'>Headers</h3>
+<h3 id='headers-26'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2395,7 +2586,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-22'>Body</h3>
+<h3 id='body-24'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2451,7 +2642,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/update-base</td>
 </tr>
 </tbody></table>
-<h3 id='headers-25'>Headers</h3>
+<h3 id='headers-27'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2463,7 +2654,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-23'>Body</h3>
+<h3 id='body-25'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2546,7 +2737,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/get-base</td>
 </tr>
 </tbody></table>
-<h3 id='headers-26'>Headers</h3>
+<h3 id='headers-28'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2558,7 +2749,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-24'>Body</h3>
+<h3 id='body-26'>Body</h3>
 <p>No requerido.</p>
 <h2 id='asignar-choferes-a-vehiculos'>Asignar Choferes a vehículos</h2>
 <blockquote>
@@ -2590,7 +2781,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/assign-vehicle</td>
 </tr>
 </tbody></table>
-<h3 id='headers-27'>Headers</h3>
+<h3 id='headers-29'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2602,7 +2793,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-25'>Body</h3>
+<h3 id='body-27'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2719,7 +2910,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/register</td>
 </tr>
 </tbody></table>
-<h3 id='headers-28'>Headers</h3>
+<h3 id='headers-30'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2735,7 +2926,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>es_mx</td>
 </tr>
 </tbody></table>
-<h3 id='body-26'>Body</h3>
+<h3 id='body-28'>Body</h3>
 <p>Type form-data</p>
 
 <table><thead>
@@ -2814,7 +3005,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/install/search</td>
 </tr>
 </tbody></table>
-<h3 id='headers-29'>Headers</h3>
+<h3 id='headers-31'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2826,7 +3017,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-27'>Body</h3>
+<h3 id='body-29'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2885,7 +3076,7 @@ Servicio sin funcionar. <code>REVISAR</code>. No se realiza búsqueda.
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </aside>
-<h3 id='headers-30'>Headers</h3>
+<h3 id='headers-32'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2897,7 +3088,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-28'>Body</h3>
+<h3 id='body-30'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2978,7 +3169,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="notice">
 Example id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
 </aside>
-<h3 id='headers-31'>Headers</h3>
+<h3 id='headers-33'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3028,7 +3219,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="notice">
 Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
 </aside>
-<h3 id='headers-32'>Headers</h3>
+<h3 id='headers-34'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3046,7 +3237,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 </tbody></table>
 <h3 id='url-5'>URL</h3>
 <p>Es necesario pasar vehicle_id (id de vehiculo, NO numero de serie) al final de la URL del endpoint</p>
-<h3 id='body-29'>Body</h3>
+<h3 id='body-31'>Body</h3>
 <ul>
 <li>Type x-www-form-urlencoded</li>
 </ul>
@@ -3162,7 +3353,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>{{url}}/api/install/security-kit-list</td>
 </tr>
 </tbody></table>
-<h3 id='headers-33'>Headers</h3>
+<h3 id='headers-35'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3174,7 +3365,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-30'>Body</h3>
+<h3 id='body-32'>Body</h3>
 <p>No aplica.</p>
 <h2 id='instalar-kit-de-seguridad'>Instalar kit de seguridad</h2>
 <blockquote>
@@ -3236,7 +3427,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>{{url}}/api/install/install?=</td>
 </tr>
 </tbody></table>
-<h3 id='headers-34'>Headers</h3>
+<h3 id='headers-36'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3248,7 +3439,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-31'>Body</h3>
+<h3 id='body-33'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -3340,7 +3531,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>{{url}}/api/install/show/{vehicle_id}</td>
 </tr>
 </tbody></table>
-<h3 id='headers-35'>Headers</h3>
+<h3 id='headers-37'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3352,7 +3543,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-32'>Body</h3>
+<h3 id='body-34'>Body</h3>
 <p>No aplica.</p>
 
 <aside class="notice">
@@ -3392,7 +3583,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>{{url}}/api/install/revision</td>
 </tr>
 </tbody></table>
-<h3 id='headers-36'>Headers</h3>
+<h3 id='headers-38'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3404,7 +3595,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-33'>Body</h3>
+<h3 id='body-35'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -3492,7 +3683,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </aside>
-<h3 id='headers-37'>Headers</h3>
+<h3 id='headers-39'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3504,7 +3695,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-34'>Body</h3>
+<h3 id='body-36'>Body</h3>
 <p>No requerido</p>
 
       </div>
