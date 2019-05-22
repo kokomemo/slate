@@ -137,7 +137,7 @@ Key   | Value | Mandatory
 username | email@example.com  |     1
 password | 123qwe1 |   1
 
-##Logout
+## Logout
 >Response: 
 
 ```shell
@@ -153,78 +153,13 @@ password | 123qwe1 |   1
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
-GET | loogout GENERAL | {{url}}/api/logout
+GET | logout GENERAL | {{url}}/api/logout
 
 ### Headers
 
 Key  | Value 
 -----|-----
 Autorization | Bearer eyJ0eXAiOiJKV1Q...
-
-
-## Registro de usuarios desde la APP
->Response:
-
-```shell
-{
-    "success": 0,
-    "message": "Hacen falta datos para completar el registro",
-    "data": []
-}
-
-{
-    "success": 0,
-    "message": "No se pudo registrar el usuario",
-    "data": []
-}
-
-{
-    "success": 0,
-    "message": "Hace falta información de suscripción para completar el registro",
-    "data": []
-}
-```
-
-```json
-{
-    "success": 1,
-    "message": "",
-    "data": {
-        "token_type": "Bearer",
-        "expires_in": 604797,
-        "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI...",
-        "user_type": 3
-    }
-}
-```
-Registro utilizado por usuarios que recién descargaron la app. En este registro siempre se asignará por default un tipo de usuario 3 (Admin ind)
-
-HTTP Request  | Name Endpoint |  Endpoint
---------------|---------------|-----------
-POST | register user GENERAL | {{url}}/api/register
-
-### Headers
-
-Key  | Value 
------|-----
-Accept | application/json
-lang | es_mx
-
-### Body
-
-Type form-data
-
-Key | Value | Mandatory
-----|-------|---------- 
-name | Nombre de usuario | 1
-last_name | Apellido del usuairo | 0
-email | Correo electrónico | 1
-password | Contraseña del usuario | 1
-password_confirmation | Confirmación de contraseña | 1
-image | Foto del usuario | 0
-company | Nombre de la compañía | 1
-
-Nota: Si se envía passsword, obligatoriamente se debe enviar password_confirmation.
 
 ## Registro secundario de usuarios
 >Response:
@@ -343,7 +278,7 @@ La información requerida para realizar un registro secundario, es similar a la 
             "name": "Administrador",
             "last_name": "Kokonut",
             "email": "memo@gmail.com",
-            "image": "https://soltek-staging.s3.us-west-2.amazonaws.com/profiles/profile_/Xr5H0oBLdHjlby6QoPHJEpE.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIYSAD6GNEQTV6FPA%2F20190521%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20190521T170237Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Signature=19d6a6b40b5dcdde82db69dde3567a0f7e5b2c1acae9464e971586e9a455c848",
+            "image": "https://soltek-staging.s3.us-west-2.amazonaws.com/profiles/profile_/Xr5H0oBLdHjlby6QoPHJEpg?X-Amz-Content-Sha256=UN",
             "created_at": {
                 "date": "2019-05-16 15:48:03.000000",
                 "timezone_type": 3,
