@@ -371,6 +371,107 @@ La información requerida para realizar un registro secundario, es similar a la 
 
 }]
 
+## Eliminar Usuarios
+>Response:
+
+```shell
+{
+    "success": 0,
+    "message": "Error al eliminar el usuario",
+    "data": null
+}
+```
+
+```json
+{
+    "success": 1,
+    "message": "Usuario eliminado correctamente",
+    "data": null
+}
+``` 
+
+Sólo se cambia el estatus del usuario, no se elimina de la base de datos.
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+DELETE | disable secondary user STAFF | {{url}}/api/staff/disable/{user_id}
+
+<aside class="notice">
+Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
+</aside>
+
+### Headers
+
+Key  | Value 
+-----|-----
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+### URL
+Es necesario pasar user_id al final de la URL del endpoint
+
+### Body
+No requerido
+
+## Actualizar Usuarios
+>Response:
+
+```shell
+{
+    "success": 0,
+    "message": "Error al actualizar el usuario",
+    "data": null
+}
+
+{
+    "success": 0,
+    "message": "Hacen falta datos para completar el registro",
+    "data": null
+}
+```
+
+```json
+{
+    "success": 1,
+    "message": "Actualización del usuario correcta",
+    "data": null
+}
+```
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+POST | update secondary user STAFF | {{url}}/api/update
+
+### Headers
+
+Key  | Value 
+-----|-----
+Accept | application/json
+lang | es_mx
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+### Body
+
+* Type form-data
+
+Key   | Value | Mandatory
+---------|-------------|----------
+name | User name  |     0
+last_name | User last_name  |     0
+email | User email  |     0
+password | User password  |     0
+password_confirmation | User password_confirmation  |     0
+image1 | User image  |     0
+type | User type  |     0
+id | User id  |     1
+
+<aside class="warning">
+Importante siempre enviar <code>id</code> para completar la actualización del usuario.
+</aside>
+
+<aside class="notice">
+Example id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
+</aside>
+
 ## Mostrar perfil
 >Response:
 
@@ -466,6 +567,137 @@ password_confirmation | User password_confirmation  |     0
 image1 | User image  |     0
 type | User type  |     0
 
+## Mostrar Usuarios por compañía
+>Response: 
+
+```shell
+```
+
+```json
+{
+    "success": 1,
+    "message": null,
+    "data": {
+        "soltek": [
+            {
+                "id_company": "eyJpdiI6IlM3N0owVmQzNG1nUTZjaTNwRHJITnc...",
+                "active": 1,
+                "users": {
+                    "1": [
+                        {
+                            "id": "eyJpdiI6IjZ5UEhTN3R0bVpIS2JkeFUzMHJ...",
+                            "name": "Administrador",
+                            "last_name": "Kokonut",
+                            "email": "desarrollo@kokonutstudio.com",
+                            "user_type": "Super Admin",
+                            "user_type_id": 1,
+                            "user_status_id": 1,
+                            "user_status_description": "Active",
+                            "created_at": "2019-05-27 23:17:22",
+                            "updated_at": null
+                        }
+                    ],
+                    "3": [
+                        {
+                            "id": "eyJpdiI6InVwWnZraWk0Y0luOWtVaklQNTVpY...",
+                            "name": "Usuario2",
+                            "last_name": "Usuario2",
+                            "email": null,
+                            "user_type": "Instalador",
+                            "user_type_id": 7,
+                            "user_status_id": 1,
+                            "user_status_description": "Active",
+                            "created_at": "2019-05-27 23:17:48",
+                            "updated_at": null
+                        }
+                    ]
+                },
+                "vehicles": {
+                    "incidents": 3,
+                    "total_vehicles": 16,
+                    "vehicles_checked": 10
+                }
+            }
+        ]
+    }
+}
+```
+
+Mustra todos los usuarios, incidencias, vehículos supervisados y total de vehiculos pertenecientes a cada compañía. Servicio utilizado para mostrar listado de Admins cliente y Admins ind en CMS y App
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+GET |  get users by company| {{url}}/api/staff/dashboard-clients
+
+### Headers
+
+Key  | Value 
+-----|-----
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+### Body
+
+No aplica.
+
+## Mostrar Sólo choferes
+>Response:
+
+```shell
+
+```
+
+```json
+{
+    "success": 1,
+    "message": null,
+    "data": [
+        {
+            "name": "Chofer 1",
+            "last_name": "Chofer",
+            "driver_number": "",
+            "status": 1,
+            "company": "KokonutStudio",
+            "user_id": 8,
+            "incidents": 0,
+            "status_description": "Active"
+        },
+        {
+            "name": "Chofer 2",
+            "last_name": "Chofer",
+            "driver_number": "",
+            "status": 1,
+            "company": "KokonutStudio",
+            "user_id": 25,
+            "incidents": 0,
+            "status_description": "Active"
+        }
+    ]
+}
+```
+
+Las compañías podrán consultar los choferes que tienen registrados. 
+
+<aside class="notice">
+Este servicio se utiliza para CMS de Admin cliente o Admin ind. Para el CMS de Super admin, utilizar el endpoint mencionado en la sección de Choferes de CMS-ENDPOINTS <code>( {{url}}/api/staff/catalog-companies-drivers )</code>
+</aside>
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+GET | show drivers STAFF | {{url}}/api/staff/show-drivers
+
+<aside class="notice">
+Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
+</aside>
+
+### Headers
+
+Key  | Value 
+-----|-----
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+### Body
+No requerido
+
 # CMS-ENDPOINTS
 
 Sólo podrán acceder a CMS los siguientes usuario:
@@ -543,6 +775,7 @@ Key   | Value | Mandatory
 period | 2019-01-01  |     1
 
 # Compañías
+
 ## Limite de usuarios y vehículos
 >Response:
 
@@ -645,217 +878,31 @@ active | estatus de compañía |     1
     "message": "Hubo un problema al actualizar la compañia",
     "data": null
 }
+
+{
+    "success": 0,
+    "message": "Hubo un error al consultar informacion",
+    "data": null
+}
 ```
 
 ```json
 {
-    "success": 0,
-    "message": "Cambio de rol exitoso",
+    "success": 1,
+    "message": "Comapañia actualizada correctamente",
     "data": null
 }
 ```
 
 Para realizar el cambio de rol, el cliente debe ser de tipo 3 (Admin Ind). Al llevar a cabo este servicio, el cliente seleccionado cambiará su tipo a Admin cliente (2), después de haber realizado el proceso de alta de cliente.
 
-HTTP Request  | Name Endpoint |  Endpoint
---------------|---------------|-----------
-GET | convert user ADMIN | {{url}}/api/staff/convert-user/user_id
-
-<aside class="notice">
-Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
+<aside class="warning">
+Éste servicio puede cambiar, falta definir algunos 
 </aside>
 
-### Headers
-
-Key  | Value 
------|-----
-Accept | application/json
-lang | es_mx
-Autorization | Bearer eyJ0eXAiOiJKV1Q...
-
-## Mostrar Usuarios por compañía
->Response: 
-
-```shell
-```
-
-```json
-{
-    "success": 1,
-    "message": null,
-    "data": {
-        "KokonutStudio": [
-            {
-                "users": {
-                    "Super Admin": [
-                        {
-                            "id": "eyJpdiI6IkI4ZlwvTzlJcVpWeGdPelUxemZhTHdnPT0i...",
-                            "name": "Administrador",
-                            "last_name": "Kokonut",
-                            "email": "kokonut@kokonutstudio.com",
-                            "created_at": "2019-05-16 15:48:03",
-                            "updated_at": "2019-05-21 16:09:11"
-                        }
-                    ],
-                    "Admin Cliente": [
-                        {
-                            "id": "eyJpdiI6InZcL0twYVc1ekM4WkRERmlzUHlHQ3...",
-                            "name": "José",
-                            "last_name": "",
-                            "email": "jaso111n@efe.com",
-                            "created_at": "2019-05-16 15:54:59",
-                            "updated_at": "2019-05-20 21:39:42"
-                        },
-                        {
-                            "id": "eyJpdiI6Im12WGhMQTlFSTNaVzJQK1wvZmdCd...",
-                            "name": "pepe2",
-                            "last_name": "",
-                            "email": "jaso1211n@efe.com",
-                            "created_at": "2019-05-16 15:55:51",
-                            "updated_at": null
-                        }
-                    ],
-                    "Supervisor": [
-                        {
-                            "id": "eyJpdiI6IlVYdHdKNUdpZEpySVBwQU9tXC9DTjBnPT0...",
-                            "name": "Supervisor 1",
-                            "last_name": "",
-                            "email": "supervisor1@hotmail.com",
-                            "created_at": "2019-05-16 16:18:49",
-                            "updated_at": null
-                        }
-                    ],
-                    "Instalador": [
-                        {
-                            "id": "eyJpdiI6ImlkZEpWQnY1Z3d0ZVlMMTVUc1pCYUE...",
-                            "name": "Instalador 1",
-                            "last_name": "",
-                            "email": "instalador1@hotmail.com",
-                            "created_at": "2019-05-16 16:18:13",
-                            "updated_at": null
-                        },
-                        {
-                            "id": "eyJpdiI6IngzbVZtTytPS09hNXVmM2FXU0t6OUE9PS...",
-                            "name": "InstaladorPrueba",
-                            "last_name": "",
-                            "email": "insta_p@gmaiil.com",
-                            "created_at": "2019-05-17 17:02:52",
-                            "updated_at": null
-                        }
-                    ],
-                    "Chofer": [
-                        {
-                            "id": "eyJpdiI6IndQTXBtRVJ5N0dJajI1MjROTi...",
-                            "name": "YYY",
-                            "last_name": "Perez",
-                            "email": null,
-                            "created_at": "2019-05-16 22:28:26",
-                            "updated_at": null
-                        },
-                        {
-                            "id": "eyJpdiI6IlwvazlDT3E5T3haUXduOXl5NTZiUkJBPT0...",
-                            "name": "Soltek",
-                            "last_name": "",
-                            "email": null,
-                            "created_at": "2019-05-17 17:33:48",
-                            "updated_at": "2019-05-17 17:34:48"
-                        }
-                    ]
-                },
-                "vehicles": {
-                    "total_vehicles": 1
-                }
-            }
-        ]
-     }
-  }
-```
-
-Mustra todos los usuarios separados por rol y total de vehiculos pertenecientes a cada compañía. Servicio utilizado para mostrar listado de Admins cliente en CMS
-
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
-GET |  get users by company| {{url}}/api/staff/dashboard-clients
-
-### Headers
-
-Key  | Value 
------|-----
-Autorization | Bearer eyJ0eXAiOiJKV1Q...
-
-### Body
-
-No aplica.
-
-## Eliminar Usuarios
->Response:
-
-```shell
-{
-    "success": 0,
-    "message": "Error al eliminar el usuario",
-    "data": null
-}
-```
-
-```json
-{
-    "success": 1,
-    "message": "Usuario eliminado correctamente",
-    "data": null
-}
-``` 
-
-Sólo se cambia el estatus del usuario, no se elimina de la base de datos.
-
-HTTP Request  | Name Endpoint |  Endpoint
---------------|---------------|-----------
-DELETE | disable secondary user STAFF | {{url}}/api/staff/disable/{user_id}
-
-<aside class="notice">
-Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
-</aside>
-
-### Headers
-
-Key  | Value 
------|-----
-Autorization | Bearer eyJ0eXAiOiJKV1Q...
-
-### URL
-Es necesario pasar user_id al final de la URL del endpoint
-
-### Body
-No requerido
-
-## Actualizar Usuarios
->Response:
-
-```shell
-{
-    "success": 0,
-    "message": "Error al actualizar el usuario",
-    "data": null
-}
-
-{
-    "success": 0,
-    "message": "Hacen falta datos para completar el registro",
-    "data": null
-}
-```
-
-```json
-{
-    "success": 1,
-    "message": "Actualización del usuario correcta",
-    "data": null
-}
-```
-
-HTTP Request  | Name Endpoint |  Endpoint
---------------|---------------|-----------
-POST | update secondary user STAFF | {{url}}/api/update
+POST | convert user ADMIN | {{url}}/api/staff/convert-user
 
 ### Headers
 
@@ -869,79 +916,14 @@ Autorization | Bearer eyJ0eXAiOiJKV1Q...
 
 * Type form-data
 
-Key   | Value | Mandatory
----------|-------------|----------
-name | User name  |     0
-last_name | User last_name  |     0
-email | User email  |     0
-password | User password  |     0
-password_confirmation | User password_confirmation  |     0
-image1 | User image  |     0
-type | User type  |     0
-id | User id  |     1
-
-<aside class="warning">
-Importante siempre enviar <code>id</code> para completar la actualización del usuario.
-</aside>
+Key | Value | Mandatory
+----|-------|-----------
+id_user | id tokenizado | 1
+name_company | nombre de la compañía | 1 
 
 <aside class="notice">
-Example id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
+Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>. 
 </aside>
-
-## Mostrar Sólo choferes
->Response:
-
-```shell
-
-```
-
-```json
-{
-    "success": 1,
-    "message": null,
-    "data": [
-        {
-            "name": "Chofer 1",
-            "last_name": "Chofer",
-            "driver_number": "",
-            "status": 1,
-            "company": "KokonutStudio",
-            "user_id": 8,
-            "incidents": 0,
-            "status_description": "Active"
-        },
-        {
-            "name": "Chofer 2",
-            "last_name": "Chofer",
-            "driver_number": "",
-            "status": 1,
-            "company": "KokonutStudio",
-            "user_id": 25,
-            "incidents": 0,
-            "status_description": "Active"
-        }
-    ]
-}
-```
-
-Las compañías podrán consultar los choferes que tienen registrados.
-
-HTTP Request  | Name Endpoint |  Endpoint
---------------|---------------|-----------
-GET | show drivers STAFF | {{url}}/api/staff/show-drivers
-
-<aside class="notice">
-Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
-</aside>
-
-### Headers
-
-Key  | Value 
------|-----
-Autorization | Bearer eyJ0eXAiOiJKV1Q...
-
-### Body
-No requerido
 
 ## Mostrar usuarios (TODOS)
 >Response: 
@@ -1022,11 +1004,16 @@ Devuelve todos los vehiculos registrados. Si es un Super Admin Soltek, se mostra
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
-GET | show vehicicle STAFF | {{url}}/api/staff/vehicle/all
+GET | show vehicicle STAFF | {{url}}/api/staff/vehicle/all/all/all
 
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </aside>
+
+### URL
+
+* Si se desea consultar la información global de todas las compañías utilizar al final: /all/all/all.
+* Si se desea consultar información de compañías, vehículos o usuario en especifico, utilizar al final de URL: /{company_id}/{vehicle_id}/{user_id} 
 
 ### Headers
 
@@ -1181,6 +1168,92 @@ vehicle_economic | Numero economico  |     0
 fk_vehicle_model | Modelo id  |     0
 fk_driver_id | Chofer asignado  |     0
 
+## Ficha técnica
+
+>Response:
+
+```shell
+{
+    "success": 0,
+    "message": "Información ingresada no coincide con el vehículo registrado",
+    "data": null
+}
+
+{
+    "success": 0,
+    "message": "No se pudo encontrar el vehículo",
+    "data": null
+}
+```
+
+```json
+{
+    "success": 1,
+    "message": null,
+    "data": [
+        {
+            "economic_number": null,
+            "serial_number": "WmW3NaEFKWaaJXLUdUrFCEuLqQUBbzv3ee7Shd8UFX4GpnMEuVELVT5a4M",
+            "security_kit": "Antisifon Tanksafe Standard",
+            "group_installation": "Tanque piloto",
+            "group_installation_id": 1,
+            "revision_point": "Antisifon",
+            "revision_point_id": 1,
+            "installation_description": "Esto es una prueba",
+            "installation_checked": 1,
+            "installation_foliate_stamp": "asdas1",
+            "created_at": "2019-05-29 14:44:47",
+            "updated_at": null,
+            "images": [
+                {
+                    "url": "https://soltek-staging.s3.us-west-2.amazonaws.com/installation...",
+                    "created_at": "2019-05-29 14:44:47"
+                },
+                {
+                    "url": "https://soltek-staging.s3.us-west-2.amazonaws.com/installation...",
+                    "created_at": "2019-05-29 14:44:47"
+                }
+            ],
+            "driver": {
+                "name": "Chofer 1",
+                "driver_id": "1dXIRZc8FQguY3AjtCB"
+            },
+            "supervisor": {
+                "name": "Supervisor",
+                "email": "super@kokonutstudio.com"
+            }
+        }
+    ]
+}
+```
+
+Este servicio se utiliza para mostrar instalación de un vehículo específico
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+POST | find vehicle INSTALL | {{url}}/api/install/search
+
+### Headers
+
+Key  | Value 
+-----|-----
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+### Body
+
+* Type form-data
+
+Key | Value | Mandatory  | Notes
+----|-------|------------|--------
+vehicle_economic | Número económico| 0 | si no se envía, se tiene que envíar vehicle_id
+vehicle_id | Número de serie | 0 | si no se envía, se tiene que envíar vehicle_economic
+revision_point | id del punto de revisión | 0 |
+group_point | id del grupo de revisión | 0 |
+
+<aside class="warning">
+Servicio sin funcionar en staging. <code>REVISAR</code>. No se realiza búsqueda.
+</aside>
+
 # Catalogo de vehículos
 
 ## Mostrar marcas y modelos
@@ -1195,35 +1268,32 @@ fk_driver_id | Chofer asignado  |     0
             "brand": "KENWORTH",
             "brand_id": 1,
             "models": [
-                "W990",
-                "T680",
-                "T880",
-                "K370",
-                "K270",
-                "T370",
-                "T270",
-                "T170",
-                "W900",
-                "T800",
-                "C500",
-                "T470",
-                "T440"
+                {
+                    "id": 1,
+                    "description": "W990"
+                },
+                {
+                    "id": 2,
+                    "description": "T680"
+                },
+                {
+                    "id": 3,
+                    "description": "T880"
+                },
+                {
+                    "id": 4,
+                    "description": "K370"
+                },
+                {
+                    "id": 5,
+                    "description": "K270"
+                }
             ]
-        },
-        {
-            "brand": "FREIGHTLINER",
-            "brand_id": 2,
-            "models": [
-                "COLUMBIA",
-                "CASCADIA",
-                "M2",
-                "FL120"
-            ]
-        }
+         }
       ]
    } 
 ```
-Muestra los modelos correspondientes a cada marca.
+Muestra los modelos correspondientes a cada marca. Este servicio se utiliza para seleccionar marca y modelo en el proceso para dar alta vehículos
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -1685,53 +1755,9 @@ image | Foto del usuario | 0
 company | Nombre de la compañía | 1
 
 Nota: Si se envía passsword, obligatoriamente se debe enviar password_confirmation.
+Si no se manda el "company", se crea una compañía llamada igual que el correo electrónico ingresado.
 
 # Vehículos
-
-## Buscador de vehiculos
->Response:
-
-```shell
-{
-    "success": 0,
-    "message": "Información ingresada no coincide con el vehículo registrado",
-    "data": null
-}
-
-{
-    "success": 0,
-    "message": "No se pudo encontrar el vehículo",
-    "data": null
-}
-```
-
-```json
-```
-
-Este servicio se utiliza para filtrar información de un vehículo específico por número de serie o por número económico.
-
-HTTP Request  | Name Endpoint |  Endpoint
---------------|---------------|-----------
-POST | find vehicle INSTALL | {{url}}/api/install/search
-
-### Headers
-
-Key  | Value 
------|-----
-Autorization | Bearer eyJ0eXAiOiJKV1Q...
-
-### Body
-
-* Type form-data
-
-Key | Value | Mandatory
-----|-------|-----------
-vehicle_economic | Número económico| 0
-vehicle_id | Número de serie | 0
-
-<aside class="warning">
-Servicio sin funcionar. <code>REVISAR</code>. No se realiza búsqueda.
-</aside>
 
 ## Crear vehiculo
 >Response: 
@@ -2025,28 +2051,31 @@ revision_point_id | Identificador de punto de revisión (id) | 1
     "message": "Instalación mostrada correctamente",
     "data": [
         {
-            "vehicle_db_id": 1,
-            "economic_number": "86214",
-            "serial_number": "55667",
-            "security_kit": "Antisifon Tanksafe Impregnable",
+            "economic_number": null,
+            "serial_number": "WmW3NaEFKWaaJXLUdUrFCEuLqQUBbzv3ee7Shd8UFX4GpnMEuVELVT5a4M",
+            "security_kit": "Antisifon Tanksafe Standard",
             "group_installation": "Tanque piloto",
-            "group_db_id": 1,
-            "revision_point": "Antisifón",
-            "revision_db_id": 2,
-            "installation_description": "",
-            "installation_checked": 0,
+            "group_installation_id": 1,
+            "revision_point": "Antisifon",
+            "revision_point_id": 1,
+            "installation_description": "Esto es una prueba",
+            "installation_checked": 1,
+            "installation_foliate_stamp": "asdas1",
+            "created_at": "2019-05-29 14:44:47",
+            "updated_at": null,
             "images": [
                 {
-                    "image": "https://soltek-staging.s3.us-west-2.amazonaws.com/installation/vehicle_1/C1lxI2KzjJtGyr0UM9cdCeH_install.jpg..."
+                    "url": "https://soltek-staging.s3.us-west-2.amazonaws.com/installation/vehicle_1/0HxetssF3wBO9qjqWq5OhMK_install.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIYSAD6GNEQTV6FPA%2F20190529%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20190529T202216Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=33fe6e39d5d12634b4bd6e1b1a626a7e46b4ee6f1e8f1d9f7766ddffd1e06435",
+                    "created_at": "2019-05-29 14:44:47"
                 }
-            ],
-            "installation_foliate_stamp": "DT456"
+            
+            ]
         }
     ]
 }
 ```
 
-Se muestra instalación realizada de vehículo. (Para Instalador y Supervisor)
+Se muestra instalación realizada de un vehículo espcífico. (Para Instalador y Supervisor)
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -2063,7 +2092,8 @@ Autorization | Bearer eyJ0eXAiOiJKV1Q...
 No aplica.
 
 <aside class="notice">
-<code>"installation_description"</code> se utilizará en caso de que en una actualización se deseé agregar comentarios acerca de la instalación.
+<code>"installation_description"</code> se utilizará en caso de que en una actualización se deseé agregar comentarios acerca de la instalación. <br><br>
+<code>{vehicle_id}</code> = id de vehículo sin tokenizar
 </aside>
 
 # Supervisión
