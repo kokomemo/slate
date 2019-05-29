@@ -678,7 +678,7 @@ No aplica.
 Las compañías podrán consultar los choferes que tienen registrados. 
 
 <aside class="notice">
-Este servicio se utiliza para CMS de Admin cliente o Admin ind. Para el CMS de Super admin, utilizar el endpoint mencionado en la sección de Choferes de CMS-ENDPOINTS <code>( {{url}}/api/staff/catalog-companies-drivers )</code>
+Este servicio se utiliza para CMS y APP de Admin cliente o Admin ind. Para el CMS de Super admin, utilizar el endpoint mencionado en la sección de Choferes de CMS-ENDPOINTS <code>( {{url}}/api/staff/catalog-companies-drivers )</code>
 </aside>
 
 HTTP Request  | Name Endpoint |  Endpoint
