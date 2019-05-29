@@ -252,10 +252,22 @@
                     <a href="#registro-secundario-de-usuarios" class="toc-h2 toc-link" data-title="Registro secundario de usuarios">Registro secundario de usuarios</a>
                   </li>
                   <li>
+                    <a href="#eliminar-usuarios" class="toc-h2 toc-link" data-title="Eliminar Usuarios">Eliminar Usuarios</a>
+                  </li>
+                  <li>
+                    <a href="#actualizar-usuarios" class="toc-h2 toc-link" data-title="Actualizar Usuarios">Actualizar Usuarios</a>
+                  </li>
+                  <li>
                     <a href="#mostrar-perfil" class="toc-h2 toc-link" data-title="Mostrar perfil">Mostrar perfil</a>
                   </li>
                   <li>
                     <a href="#editar-perfil" class="toc-h2 toc-link" data-title="Editar perfil">Editar perfil</a>
+                  </li>
+                  <li>
+                    <a href="#mostrar-usuarios-por-compania" class="toc-h2 toc-link" data-title="Mostrar Usuarios por compañía">Mostrar Usuarios por compañía</a>
+                  </li>
+                  <li>
+                    <a href="#mostrar-solo-choferes" class="toc-h2 toc-link" data-title="Mostrar Sólo choferes">Mostrar Sólo choferes</a>
                   </li>
               </ul>
           </li>
@@ -288,18 +300,6 @@
                     <a href="#convertir-admin-ind-a-admin-cliente" class="toc-h2 toc-link" data-title="Convertir Admin ind a Admin cliente">Convertir Admin ind a Admin cliente</a>
                   </li>
                   <li>
-                    <a href="#mostrar-usuarios-por-compania" class="toc-h2 toc-link" data-title="Mostrar Usuarios por compañía">Mostrar Usuarios por compañía</a>
-                  </li>
-                  <li>
-                    <a href="#eliminar-usuarios" class="toc-h2 toc-link" data-title="Eliminar Usuarios">Eliminar Usuarios</a>
-                  </li>
-                  <li>
-                    <a href="#actualizar-usuarios" class="toc-h2 toc-link" data-title="Actualizar Usuarios">Actualizar Usuarios</a>
-                  </li>
-                  <li>
-                    <a href="#mostrar-solo-choferes" class="toc-h2 toc-link" data-title="Mostrar Sólo choferes">Mostrar Sólo choferes</a>
-                  </li>
-                  <li>
                     <a href="#mostrar-usuarios-todos" class="toc-h2 toc-link" data-title="Mostrar usuarios (TODOS)">Mostrar usuarios (TODOS)</a>
                   </li>
               </ul>
@@ -318,6 +318,9 @@
                   </li>
                   <li>
                     <a href="#actualizar-vehiculo" class="toc-h2 toc-link" data-title="Actualizar vehiculo">Actualizar vehiculo</a>
+                  </li>
+                  <li>
+                    <a href="#ficha-tecnica" class="toc-h2 toc-link" data-title="Ficha técnica">Ficha técnica</a>
                   </li>
               </ul>
           </li>
@@ -377,9 +380,6 @@
           <li>
             <a href="#vehiculos-2" class="toc-h1 toc-link" data-title="Vehículos">Vehículos</a>
               <ul class="toc-list-h2">
-                  <li>
-                    <a href="#buscador-de-vehiculos" class="toc-h2 toc-link" data-title="Buscador de vehiculos">Buscador de vehiculos</a>
-                  </li>
                   <li>
                     <a href="#crear-vehiculo-2" class="toc-h2 toc-link" data-title="Crear vehiculo">Crear vehiculo</a>
                   </li>
@@ -936,34 +936,23 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <p>&quot;type&quot;: 3</p>
 
 <p>}]</p>
-<h2 id='mostrar-perfil'>Mostrar perfil</h2>
+<h2 id='eliminar-usuarios'>Eliminar Usuarios</h2>
 <blockquote>
 <p>Response:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="o">{</span>
     <span class="s2">"success"</span>: 0,
-    <span class="s2">"message"</span>: <span class="s2">"No se logró mostrar el usuario"</span>,
+    <span class="s2">"message"</span>: <span class="s2">"Error al eliminar el usuario"</span>,
     <span class="s2">"data"</span>: null
 <span class="o">}</span>
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Administrador"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kokonut"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"memo@gmail.com"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://soltek-staging.s3.us-west-2.amazonaws.com/profiles/profile_/Xr5H0oBLdHjlby6QoPHJEpg?X-Amz-Content-Sha256=UN"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-16 15:48:03.000000"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"timezone_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTC"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Usuario eliminado correctamente"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Sólo se cambia el estatus del usuario, no se elimina de la base de datos.</p>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -972,11 +961,15 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </tr>
 </thead><tbody>
 <tr>
-<td>GET</td>
-<td>profile GENERAL</td>
-<td>{{url}}/api/profile</td>
+<td>DELETE</td>
+<td>disable secondary user STAFF</td>
+<td>{{url}}/api/staff/disable/{user_id}</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
+</aside>
 <h3 id='headers-6'>Headers</h3>
 <table><thead>
 <tr>
@@ -989,13 +982,21 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
+<h3 id='url'>URL</h3>
+<p>Es necesario pasar user_id al final de la URL del endpoint</p>
 <h3 id='body-7'>Body</h3>
-<p>No requerido.</p>
-<h2 id='editar-perfil'>Editar perfil</h2>
+<p>No requerido</p>
+<h2 id='actualizar-usuarios'>Actualizar Usuarios</h2>
 <blockquote>
 <p>Response:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"success"</span>: 0,
+    <span class="s2">"message"</span>: <span class="s2">"Error al actualizar el usuario"</span>,
+    <span class="s2">"data"</span>: null
+<span class="o">}</span>
+
+<span class="o">{</span>
     <span class="s2">"success"</span>: 0,
     <span class="s2">"message"</span>: <span class="s2">"Hacen falta datos para completar el registro"</span>,
     <span class="s2">"data"</span>: null
@@ -1015,14 +1016,10 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </thead><tbody>
 <tr>
 <td>POST</td>
-<td>update profile</td>
-<td>{{url}}/api/staff/update/profile</td>
+<td>update secondary user STAFF</td>
+<td>{{url}}/api/update</td>
 </tr>
 </tbody></table>
-
-<aside class="notice">
-Asegurate de reemplazar <code>{{url}}}</code> en tu API URL.
-</aside>
 <h3 id='headers-7'>Headers</h3>
 <table><thead>
 <tr>
@@ -1090,7 +1087,325 @@ Asegurate de reemplazar <code>{{url}}}</code> en tu API URL.
 <td>User type</td>
 <td>0</td>
 </tr>
+<tr>
+<td>id</td>
+<td>User id</td>
+<td>1</td>
+</tr>
 </tbody></table>
+
+<aside class="warning">
+Importante siempre enviar <code>id</code> para completar la actualización del usuario.
+</aside>
+
+<aside class="notice">
+Example id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
+</aside>
+<h2 id='mostrar-perfil'>Mostrar perfil</h2>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"success"</span>: 0,
+    <span class="s2">"message"</span>: <span class="s2">"No se logró mostrar el usuario"</span>,
+    <span class="s2">"data"</span>: null
+<span class="o">}</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Administrador"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kokonut"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"memo@gmail.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://soltek-staging.s3.us-west-2.amazonaws.com/profiles/profile_/Xr5H0oBLdHjlby6QoPHJEpg?X-Amz-Content-Sha256=UN"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-16 15:48:03.000000"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"timezone_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTC"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>HTTP Request</th>
+<th>Name Endpoint</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>profile GENERAL</td>
+<td>{{url}}/api/profile</td>
+</tr>
+</tbody></table>
+<h3 id='headers-8'>Headers</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Autorization</td>
+<td>Bearer eyJ0eXAiOiJKV1Q...</td>
+</tr>
+</tbody></table>
+<h3 id='body-9'>Body</h3>
+<p>No requerido.</p>
+<h2 id='editar-perfil'>Editar perfil</h2>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"success"</span>: 0,
+    <span class="s2">"message"</span>: <span class="s2">"Hacen falta datos para completar el registro"</span>,
+    <span class="s2">"data"</span>: null
+<span class="o">}</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Actualización del usuario correcta"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>HTTP Request</th>
+<th>Name Endpoint</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>POST</td>
+<td>update profile</td>
+<td>{{url}}/api/staff/update/profile</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Asegurate de reemplazar <code>{{url}}}</code> en tu API URL.
+</aside>
+<h3 id='headers-9'>Headers</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>lang</td>
+<td>es_mx</td>
+</tr>
+<tr>
+<td>Autorization</td>
+<td>Bearer eyJ0eXAiOiJKV1Q...</td>
+</tr>
+</tbody></table>
+<h3 id='body-10'>Body</h3>
+<ul>
+<li>Type form-data</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th>Mandatory</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>User name</td>
+<td>0</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>User last_name</td>
+<td>0</td>
+</tr>
+<tr>
+<td>email</td>
+<td>User email</td>
+<td>0</td>
+</tr>
+<tr>
+<td>password</td>
+<td>User password</td>
+<td>0</td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td>User password_confirmation</td>
+<td>0</td>
+</tr>
+<tr>
+<td>image1</td>
+<td>User image</td>
+<td>0</td>
+</tr>
+<tr>
+<td>type</td>
+<td>User type</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h2 id='mostrar-usuarios-por-compania'>Mostrar Usuarios por compañía</h2>
+<blockquote>
+<p>Response: </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"soltek"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id_company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJpdiI6IlM3N0owVmQzNG1nUTZjaTNwRHJITnc..."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJpdiI6IjZ5UEhTN3R0bVpIS2JkeFUzMHJ..."</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Administrador"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kokonut"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"desarrollo@kokonutstudio.com"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"user_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super Admin"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"user_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"user_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"user_status_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-27 23:17:22"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="s2">"3"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJpdiI6InVwWnZraWk0Y0luOWtVaklQNTVpY..."</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Usuario2"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Usuario2"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"user_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Instalador"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"user_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"user_status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"user_status_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-27 23:17:48"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"vehicles"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"incidents"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"total_vehicles"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"vehicles_checked"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Mustra todos los usuarios, incidencias, vehículos supervisados y total de vehiculos pertenecientes a cada compañía. Servicio utilizado para mostrar listado de Admins cliente y Admins ind en CMS y App</p>
+
+<table><thead>
+<tr>
+<th>HTTP Request</th>
+<th>Name Endpoint</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>get users by company</td>
+<td>{{url}}/api/staff/dashboard-clients</td>
+</tr>
+</tbody></table>
+<h3 id='headers-10'>Headers</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Autorization</td>
+<td>Bearer eyJ0eXAiOiJKV1Q...</td>
+</tr>
+</tbody></table>
+<h3 id='body-11'>Body</h3>
+<p>No aplica.</p>
+<h2 id='mostrar-solo-choferes'>Mostrar Sólo choferes</h2>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chofer 1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chofer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"driver_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KokonutStudio"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"incidents"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chofer 2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chofer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"driver_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KokonutStudio"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"incidents"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Las compañías podrán consultar los choferes que tienen registrados. </p>
+
+<aside class="notice">
+Este servicio se utiliza para CMS de Admin cliente o Admin ind. Para el CMS de Super admin, utilizar el endpoint mencionado en la sección de Choferes de CMS-ENDPOINTS <code>( {{url}}/api/staff/catalog-companies-drivers )</code>
+</aside>
+
+<table><thead>
+<tr>
+<th>HTTP Request</th>
+<th>Name Endpoint</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>show drivers STAFF</td>
+<td>{{url}}/api/staff/show-drivers</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
+</aside>
+<h3 id='headers-11'>Headers</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Autorization</td>
+<td>Bearer eyJ0eXAiOiJKV1Q...</td>
+</tr>
+</tbody></table>
+<h3 id='body-12'>Body</h3>
+<p>No requerido</p>
 <h1 id='cms-endpoints'>CMS-ENDPOINTS</h1>
 <p>Sólo podrán acceder a CMS los siguientes usuario:</p>
 
@@ -1169,7 +1484,7 @@ Asegurate de reemplazar <code>{{url}}}</code> en tu API URL.
 <aside class="notice">
 Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas acerca de vehiculos registrados y vehiculos supervisados. Todo en relación a la compañía a la que pertenecen.
 </aside>
-<h3 id='headers-8'>Headers</h3>
+<h3 id='headers-12'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1189,7 +1504,7 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-9'>Body</h3>
+<h3 id='body-13'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -1235,7 +1550,7 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
 <td>{{url}}/api/staff/update-subscription-limit</td>
 </tr>
 </tbody></table>
-<h3 id='headers-9'>Headers</h3>
+<h3 id='headers-13'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1255,7 +1570,7 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-10'>Body</h3>
+<h3 id='body-14'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -1311,7 +1626,7 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
 <td>{{url}}/api/staff/activate-company</td>
 </tr>
 </tbody></table>
-<h3 id='headers-10'>Headers</h3>
+<h3 id='headers-14'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1331,7 +1646,7 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-11'>Body</h3>
+<h3 id='body-15'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -1373,245 +1688,24 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
     <span class="s2">"message"</span>: <span class="s2">"Hubo un problema al actualizar la compañia"</span>,
     <span class="s2">"data"</span>: null
 <span class="o">}</span>
+
+<span class="o">{</span>
+    <span class="s2">"success"</span>: 0,
+    <span class="s2">"message"</span>: <span class="s2">"Hubo un error al consultar informacion"</span>,
+    <span class="s2">"data"</span>: null
+<span class="o">}</span>
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cambio de rol exitoso"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comapañia actualizada correctamente"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Para realizar el cambio de rol, el cliente debe ser de tipo 3 (Admin Ind). Al llevar a cabo este servicio, el cliente seleccionado cambiará su tipo a Admin cliente (2), después de haber realizado el proceso de alta de cliente.</p>
 
-<table><thead>
-<tr>
-<th>HTTP Request</th>
-<th>Name Endpoint</th>
-<th>Endpoint</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>GET</td>
-<td>convert user ADMIN</td>
-<td>{{url}}/api/staff/convert-user/user_id</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
+<aside class="warning">
+Éste servicio puede cambiar, falta definir algunos 
 </aside>
-<h3 id='headers-11'>Headers</h3>
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Accept</td>
-<td>application/json</td>
-</tr>
-<tr>
-<td>lang</td>
-<td>es_mx</td>
-</tr>
-<tr>
-<td>Autorization</td>
-<td>Bearer eyJ0eXAiOiJKV1Q...</td>
-</tr>
-</tbody></table>
-<h2 id='mostrar-usuarios-por-compania'>Mostrar Usuarios por compañía</h2>
-<blockquote>
-<p>Response: </p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"KokonutStudio"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"Super Admin"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJpdiI6IkI4ZlwvTzlJcVpWeGdPelUxemZhTHdnPT0i..."</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Administrador"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kokonut"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kokonut@kokonutstudio.com"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-16 15:48:03"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-21 16:09:11"</span><span class="w">
-                        </span><span class="p">}</span><span class="w">
-                    </span><span class="p">],</span><span class="w">
-                    </span><span class="s2">"Admin Cliente"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJpdiI6InZcL0twYVc1ekM4WkRERmlzUHlHQ3..."</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"José"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jaso111n@efe.com"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-16 15:54:59"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-20 21:39:42"</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJpdiI6Im12WGhMQTlFSTNaVzJQK1wvZmdCd..."</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pepe2"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jaso1211n@efe.com"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-16 15:55:51"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-                        </span><span class="p">}</span><span class="w">
-                    </span><span class="p">],</span><span class="w">
-                    </span><span class="s2">"Supervisor"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJpdiI6IlVYdHdKNUdpZEpySVBwQU9tXC9DTjBnPT0..."</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supervisor 1"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"supervisor1@hotmail.com"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-16 16:18:49"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-                        </span><span class="p">}</span><span class="w">
-                    </span><span class="p">],</span><span class="w">
-                    </span><span class="s2">"Instalador"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJpdiI6ImlkZEpWQnY1Z3d0ZVlMMTVUc1pCYUE..."</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Instalador 1"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instalador1@hotmail.com"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-16 16:18:13"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJpdiI6IngzbVZtTytPS09hNXVmM2FXU0t6OUE9PS..."</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InstaladorPrueba"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"insta_p@gmaiil.com"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-17 17:02:52"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-                        </span><span class="p">}</span><span class="w">
-                    </span><span class="p">],</span><span class="w">
-                    </span><span class="s2">"Chofer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJpdiI6IndQTXBtRVJ5N0dJajI1MjROTi..."</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YYY"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Perez"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-16 22:28:26"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJpdiI6IlwvazlDT3E5T3haUXduOXl5NTZiUkJBPT0..."</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soltek"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-17 17:33:48"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-17 17:34:48"</span><span class="w">
-                        </span><span class="p">}</span><span class="w">
-                    </span><span class="p">]</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="s2">"vehicles"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"total_vehicles"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Mustra todos los usuarios separados por rol y total de vehiculos pertenecientes a cada compañía. Servicio utilizado para mostrar listado de Admins cliente en CMS</p>
 
-<table><thead>
-<tr>
-<th>HTTP Request</th>
-<th>Name Endpoint</th>
-<th>Endpoint</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>GET</td>
-<td>get users by company</td>
-<td>{{url}}/api/staff/dashboard-clients</td>
-</tr>
-</tbody></table>
-<h3 id='headers-12'>Headers</h3>
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Autorization</td>
-<td>Bearer eyJ0eXAiOiJKV1Q...</td>
-</tr>
-</tbody></table>
-<h3 id='body-12'>Body</h3>
-<p>No aplica.</p>
-<h2 id='eliminar-usuarios'>Eliminar Usuarios</h2>
-<blockquote>
-<p>Response:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-    <span class="s2">"success"</span>: 0,
-    <span class="s2">"message"</span>: <span class="s2">"Error al eliminar el usuario"</span>,
-    <span class="s2">"data"</span>: null
-<span class="o">}</span>
-</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Usuario eliminado correctamente"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Sólo se cambia el estatus del usuario, no se elimina de la base de datos.</p>
-
-<table><thead>
-<tr>
-<th>HTTP Request</th>
-<th>Name Endpoint</th>
-<th>Endpoint</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>DELETE</td>
-<td>disable secondary user STAFF</td>
-<td>{{url}}/api/staff/disable/{user_id}</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
-</aside>
-<h3 id='headers-13'>Headers</h3>
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Autorization</td>
-<td>Bearer eyJ0eXAiOiJKV1Q...</td>
-</tr>
-</tbody></table>
-<h3 id='url'>URL</h3>
-<p>Es necesario pasar user_id al final de la URL del endpoint</p>
-<h3 id='body-13'>Body</h3>
-<p>No requerido</p>
-<h2 id='actualizar-usuarios'>Actualizar Usuarios</h2>
-<blockquote>
-<p>Response:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-    <span class="s2">"success"</span>: 0,
-    <span class="s2">"message"</span>: <span class="s2">"Error al actualizar el usuario"</span>,
-    <span class="s2">"data"</span>: null
-<span class="o">}</span>
-
-<span class="o">{</span>
-    <span class="s2">"success"</span>: 0,
-    <span class="s2">"message"</span>: <span class="s2">"Hacen falta datos para completar el registro"</span>,
-    <span class="s2">"data"</span>: null
-<span class="o">}</span>
-</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Actualización del usuario correcta"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -1621,11 +1715,11 @@ Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 </thead><tbody>
 <tr>
 <td>POST</td>
-<td>update secondary user STAFF</td>
-<td>{{url}}/api/update</td>
+<td>convert user ADMIN</td>
+<td>{{url}}/api/staff/convert-user</td>
 </tr>
 </tbody></table>
-<h3 id='headers-14'>Headers</h3>
+<h3 id='headers-15'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1645,7 +1739,7 @@ Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-14'>Body</h3>
+<h3 id='body-16'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -1658,119 +1752,20 @@ Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 </tr>
 </thead><tbody>
 <tr>
-<td>name</td>
-<td>User name</td>
-<td>0</td>
+<td>id_user</td>
+<td>id tokenizado</td>
+<td>1</td>
 </tr>
 <tr>
-<td>last_name</td>
-<td>User last_name</td>
-<td>0</td>
-</tr>
-<tr>
-<td>email</td>
-<td>User email</td>
-<td>0</td>
-</tr>
-<tr>
-<td>password</td>
-<td>User password</td>
-<td>0</td>
-</tr>
-<tr>
-<td>password_confirmation</td>
-<td>User password_confirmation</td>
-<td>0</td>
-</tr>
-<tr>
-<td>image1</td>
-<td>User image</td>
-<td>0</td>
-</tr>
-<tr>
-<td>type</td>
-<td>User type</td>
-<td>0</td>
-</tr>
-<tr>
-<td>id</td>
-<td>User id</td>
+<td>name_company</td>
+<td>nombre de la compañía</td>
 <td>1</td>
 </tr>
 </tbody></table>
 
-<aside class="warning">
-Importante siempre enviar <code>id</code> para completar la actualización del usuario.
-</aside>
-
 <aside class="notice">
-Example id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
+Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>. 
 </aside>
-<h2 id='mostrar-solo-choferes'>Mostrar Sólo choferes</h2>
-<blockquote>
-<p>Response:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>
-</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chofer 1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chofer"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"driver_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KokonutStudio"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"incidents"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"status_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chofer 2"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chofer"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"driver_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KokonutStudio"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"incidents"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"status_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Las compañías podrán consultar los choferes que tienen registrados.</p>
-
-<table><thead>
-<tr>
-<th>HTTP Request</th>
-<th>Name Endpoint</th>
-<th>Endpoint</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>GET</td>
-<td>show drivers STAFF</td>
-<td>{{url}}/api/staff/show-drivers</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
-</aside>
-<h3 id='headers-15'>Headers</h3>
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Autorization</td>
-<td>Bearer eyJ0eXAiOiJKV1Q...</td>
-</tr>
-</tbody></table>
-<h3 id='body-15'>Body</h3>
-<p>No requerido</p>
 <h2 id='mostrar-usuarios-todos'>Mostrar usuarios (TODOS)</h2>
 <blockquote>
 <p>Response: </p>
@@ -1833,7 +1828,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-16'>Body</h3>
+<h3 id='body-17'>Body</h3>
 <p>No requerido</p>
 <h1 id='vehiculos'>Vehículos</h1><h2 id='mostrar-vehiculos-todos'>Mostrar vehiculos (TODOS)</h2>
 <blockquote>
@@ -1868,13 +1863,18 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <tr>
 <td>GET</td>
 <td>show vehicicle STAFF</td>
-<td>{{url}}/api/staff/vehicle/all</td>
+<td>{{url}}/api/staff/vehicle/all/all/all</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </aside>
+<h3 id='url-2'>URL</h3>
+<ul>
+<li>Si se desea consultar la información global de todas las compañías utilizar al final: /all/all/all.</li>
+<li>Si se desea consultar información de compañías, vehículos o usuario en especifico, utilizar al final de URL: /{company_id}/{vehicle_id}/{user_id} </li>
+</ul>
 <h3 id='headers-17'>Headers</h3>
 <table><thead>
 <tr>
@@ -1895,7 +1895,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-17'>Body</h3>
+<h3 id='body-18'>Body</h3>
 <p>No requerido</p>
 <h2 id='crear-vehiculo'>Crear vehiculo</h2>
 <blockquote>
@@ -1941,7 +1941,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-18'>Body</h3>
+<h3 id='body-19'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2034,7 +2034,7 @@ Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo,
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='url-2'>URL</h3>
+<h3 id='url-3'>URL</h3>
 <p>Es necesario pasar vehicle_id (id de vehiculo, NO numero de serie) al final de la URL del endpoint</p>
 <h2 id='actualizar-vehiculo'>Actualizar vehiculo</h2>
 <blockquote>
@@ -2088,9 +2088,9 @@ Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo,
 <td>application/x-www-form-urlencoded</td>
 </tr>
 </tbody></table>
-<h3 id='url-3'>URL</h3>
+<h3 id='url-4'>URL</h3>
 <p>Es necesario pasar vehicle_id (id de vehiculo, NO numero de serie) al final de la URL del endpoint</p>
-<h3 id='body-19'>Body</h3>
+<h3 id='body-20'>Body</h3>
 <ul>
 <li>Type x-www-form-urlencoded</li>
 </ul>
@@ -2133,6 +2133,129 @@ Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo,
 <td>0</td>
 </tr>
 </tbody></table>
+<h2 id='ficha-tecnica'>Ficha técnica</h2>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"success"</span>: 0,
+    <span class="s2">"message"</span>: <span class="s2">"Información ingresada no coincide con el vehículo registrado"</span>,
+    <span class="s2">"data"</span>: null
+<span class="o">}</span>
+
+<span class="o">{</span>
+    <span class="s2">"success"</span>: 0,
+    <span class="s2">"message"</span>: <span class="s2">"No se pudo encontrar el vehículo"</span>,
+    <span class="s2">"data"</span>: null
+<span class="o">}</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"economic_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"serial_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WmW3NaEFKWaaJXLUdUrFCEuLqQUBbzv3ee7Shd8UFX4GpnMEuVELVT5a4M"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"security_kit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antisifon Tanksafe Standard"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"group_installation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tanque piloto"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"group_installation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"revision_point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antisifon"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"revision_point_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"installation_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Esto es una prueba"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"installation_checked"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"installation_foliate_stamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asdas1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-29 14:44:47"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://soltek-staging.s3.us-west-2.amazonaws.com/installation..."</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-29 14:44:47"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://soltek-staging.s3.us-west-2.amazonaws.com/installation..."</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-29 14:44:47"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"driver"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chofer 1"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"driver_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1dXIRZc8FQguY3AjtCB"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"supervisor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supervisor"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"super@kokonutstudio.com"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Este servicio se utiliza para mostrar instalación de un vehículo específico</p>
+
+<table><thead>
+<tr>
+<th>HTTP Request</th>
+<th>Name Endpoint</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>POST</td>
+<td>find vehicle INSTALL</td>
+<td>{{url}}/api/install/search</td>
+</tr>
+</tbody></table>
+<h3 id='headers-21'>Headers</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Autorization</td>
+<td>Bearer eyJ0eXAiOiJKV1Q...</td>
+</tr>
+</tbody></table>
+<h3 id='body-21'>Body</h3>
+<ul>
+<li>Type form-data</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th>Mandatory</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>vehicle_economic</td>
+<td>Número económico</td>
+<td>0</td>
+<td>si no se envía, se tiene que envíar vehicle_id</td>
+</tr>
+<tr>
+<td>vehicle_id</td>
+<td>Número de serie</td>
+<td>0</td>
+<td>si no se envía, se tiene que envíar vehicle_economic</td>
+</tr>
+<tr>
+<td>revision_point</td>
+<td>id del punto de revisión</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>group_point</td>
+<td>id del grupo de revisión</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Servicio sin funcionar en staging. <code>REVISAR</code>. No se realiza búsqueda.
+</aside>
 <h1 id='catalogo-de-vehiculos'>Catalogo de vehículos</h1><h2 id='mostrar-marcas-y-modelos'>Mostrar marcas y modelos</h2>
 <blockquote>
 <p>Response:</p>
@@ -2145,35 +2268,32 @@ Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo,
             </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KENWORTH"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"brand_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"models"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"W990"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"T680"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"T880"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"K370"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"K270"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"T370"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"T270"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"T170"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"W900"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"T800"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"C500"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"T470"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"T440"</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W990"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T680"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T880"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K370"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K270"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FREIGHTLINER"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"brand_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"models"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"COLUMBIA"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"CASCADIA"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"M2"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"FL120"</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
       </span><span class="p">]</span><span class="w">
    </span><span class="p">}</span><span class="w"> 
 </span></code></pre>
-<p>Muestra los modelos correspondientes a cada marca.</p>
+<p>Muestra los modelos correspondientes a cada marca. Este servicio se utiliza para seleccionar marca y modelo en el proceso para dar alta vehículos</p>
 
 <table><thead>
 <tr>
@@ -2192,7 +2312,7 @@ Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo,
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL. 
 </aside>
-<h3 id='headers-21'>Headers</h3>
+<h3 id='headers-22'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2212,7 +2332,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-20'>Body</h3>
+<h3 id='body-22'>Body</h3>
 <p>No requerido</p>
 <h2 id='crear-marcas-y-modelos'>Crear Marcas y Modelos</h2>
 <blockquote>
@@ -2248,7 +2368,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/create-model-vehicle</td>
 </tr>
 </tbody></table>
-<h3 id='headers-22'>Headers</h3>
+<h3 id='headers-23'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2268,7 +2388,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-21'>Body</h3>
+<h3 id='body-23'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2334,7 +2454,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/delete-model-vehicle</td>
 </tr>
 </tbody></table>
-<h3 id='headers-23'>Headers</h3>
+<h3 id='headers-24'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2354,7 +2474,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-22'>Body</h3>
+<h3 id='body-24'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2433,7 +2553,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL. 
 </aside>
-<h3 id='headers-24'>Headers</h3>
+<h3 id='headers-25'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2487,7 +2607,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/update/driver</td>
 </tr>
 </tbody></table>
-<h3 id='headers-25'>Headers</h3>
+<h3 id='headers-26'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2507,7 +2627,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-23'>Body</h3>
+<h3 id='body-25'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2574,7 +2694,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/create-base</td>
 </tr>
 </tbody></table>
-<h3 id='headers-26'>Headers</h3>
+<h3 id='headers-27'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2586,7 +2706,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-24'>Body</h3>
+<h3 id='body-26'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2642,7 +2762,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/update-base</td>
 </tr>
 </tbody></table>
-<h3 id='headers-27'>Headers</h3>
+<h3 id='headers-28'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2654,7 +2774,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-25'>Body</h3>
+<h3 id='body-27'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2737,7 +2857,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/get-base</td>
 </tr>
 </tbody></table>
-<h3 id='headers-28'>Headers</h3>
+<h3 id='headers-29'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2749,7 +2869,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-26'>Body</h3>
+<h3 id='body-28'>Body</h3>
 <p>No requerido.</p>
 <h2 id='asignar-choferes-a-vehiculos'>Asignar Choferes a vehículos</h2>
 <blockquote>
@@ -2781,7 +2901,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/assign-vehicle</td>
 </tr>
 </tbody></table>
-<h3 id='headers-29'>Headers</h3>
+<h3 id='headers-30'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2793,7 +2913,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-27'>Body</h3>
+<h3 id='body-29'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2910,7 +3030,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/register</td>
 </tr>
 </tbody></table>
-<h3 id='headers-30'>Headers</h3>
+<h3 id='headers-31'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2926,7 +3046,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>es_mx</td>
 </tr>
 </tbody></table>
-<h3 id='body-28'>Body</h3>
+<h3 id='body-30'>Body</h3>
 <p>Type form-data</p>
 
 <table><thead>
@@ -2973,78 +3093,9 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </tr>
 </tbody></table>
 
-<p>Nota: Si se envía passsword, obligatoriamente se debe enviar password_confirmation.</p>
-<h1 id='vehiculos-2'>Vehículos</h1><h2 id='buscador-de-vehiculos'>Buscador de vehiculos</h2>
-<blockquote>
-<p>Response:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-    <span class="s2">"success"</span>: 0,
-    <span class="s2">"message"</span>: <span class="s2">"Información ingresada no coincide con el vehículo registrado"</span>,
-    <span class="s2">"data"</span>: null
-<span class="o">}</span>
-
-<span class="o">{</span>
-    <span class="s2">"success"</span>: 0,
-    <span class="s2">"message"</span>: <span class="s2">"No se pudo encontrar el vehículo"</span>,
-    <span class="s2">"data"</span>: null
-<span class="o">}</span>
-</code></pre><pre class="highlight json tab-json"><code></code></pre>
-<p>Este servicio se utiliza para filtrar información de un vehículo específico por número de serie o por número económico.</p>
-
-<table><thead>
-<tr>
-<th>HTTP Request</th>
-<th>Name Endpoint</th>
-<th>Endpoint</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>POST</td>
-<td>find vehicle INSTALL</td>
-<td>{{url}}/api/install/search</td>
-</tr>
-</tbody></table>
-<h3 id='headers-31'>Headers</h3>
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Autorization</td>
-<td>Bearer eyJ0eXAiOiJKV1Q...</td>
-</tr>
-</tbody></table>
-<h3 id='body-29'>Body</h3>
-<ul>
-<li>Type form-data</li>
-</ul>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-<th>Mandatory</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>vehicle_economic</td>
-<td>Número económico</td>
-<td>0</td>
-</tr>
-<tr>
-<td>vehicle_id</td>
-<td>Número de serie</td>
-<td>0</td>
-</tr>
-</tbody></table>
-
-<aside class="warning">
-Servicio sin funcionar. <code>REVISAR</code>. No se realiza búsqueda.
-</aside>
-<h2 id='crear-vehiculo-2'>Crear vehiculo</h2>
+<p>Nota: Si se envía passsword, obligatoriamente se debe enviar password_confirmation.
+Si no se manda el &quot;company&quot;, se crea una compañía llamada igual que el correo electrónico ingresado.</p>
+<h1 id='vehiculos-2'>Vehículos</h1><h2 id='crear-vehiculo-2'>Crear vehiculo</h2>
 <blockquote>
 <p>Response: </p>
 </blockquote>
@@ -3088,7 +3139,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-30'>Body</h3>
+<h3 id='body-31'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -3181,7 +3232,7 @@ Example id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='url-4'>URL</h3>
+<h3 id='url-5'>URL</h3>
 <p>Es necesario pasar vehicle_id (id de vehiculo, NO numero de serie) al final de la URL del endpoint</p>
 <h2 id='actualizar-vehiculo-2'>Actualizar vehiculo</h2>
 <blockquote>
@@ -3235,9 +3286,9 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>application/x-www-form-urlencoded</td>
 </tr>
 </tbody></table>
-<h3 id='url-5'>URL</h3>
+<h3 id='url-6'>URL</h3>
 <p>Es necesario pasar vehicle_id (id de vehiculo, NO numero de serie) al final de la URL del endpoint</p>
-<h3 id='body-31'>Body</h3>
+<h3 id='body-32'>Body</h3>
 <ul>
 <li>Type x-www-form-urlencoded</li>
 </ul>
@@ -3365,7 +3416,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-32'>Body</h3>
+<h3 id='body-33'>Body</h3>
 <p>No aplica.</p>
 <h2 id='instalar-kit-de-seguridad'>Instalar kit de seguridad</h2>
 <blockquote>
@@ -3439,7 +3490,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-33'>Body</h3>
+<h3 id='body-34'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -3496,27 +3547,30 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Instalación mostrada correctamente"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"vehicle_db_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"economic_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"86214"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"serial_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55667"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"security_kit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antisifon Tanksafe Impregnable"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"economic_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"serial_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WmW3NaEFKWaaJXLUdUrFCEuLqQUBbzv3ee7Shd8UFX4GpnMEuVELVT5a4M"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"security_kit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antisifon Tanksafe Standard"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"group_installation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tanque piloto"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"group_db_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"revision_point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antisifón"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"revision_db_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"installation_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"installation_checked"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"group_installation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"revision_point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antisifon"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"revision_point_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"installation_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Esto es una prueba"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"installation_checked"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"installation_foliate_stamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asdas1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-29 14:44:47"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://soltek-staging.s3.us-west-2.amazonaws.com/installation/vehicle_1/C1lxI2KzjJtGyr0UM9cdCeH_install.jpg..."</span><span class="w">
+                    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://soltek-staging.s3.us-west-2.amazonaws.com/installation/vehicle_1/0HxetssF3wBO9qjqWq5OhMK_install.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIYSAD6GNEQTV6FPA%2F20190529%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20190529T202216Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=7200&amp;X-Amz-Signature=33fe6e39d5d12634b4bd6e1b1a626a7e46b4ee6f1e8f1d9f7766ddffd1e06435"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-29 14:44:47"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"installation_foliate_stamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DT456"</span><span class="w">
+
+            </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Se muestra instalación realizada de vehículo. (Para Instalador y Supervisor)</p>
+<p>Se muestra instalación realizada de un vehículo espcífico. (Para Instalador y Supervisor)</p>
 
 <table><thead>
 <tr>
@@ -3543,11 +3597,12 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-34'>Body</h3>
+<h3 id='body-35'>Body</h3>
 <p>No aplica.</p>
 
 <aside class="notice">
-<code>"installation_description"</code> se utilizará en caso de que en una actualización se deseé agregar comentarios acerca de la instalación.
+<code>"installation_description"</code> se utilizará en caso de que en una actualización se deseé agregar comentarios acerca de la instalación. <br><br>
+<code>{vehicle_id}</code> = id de vehículo sin tokenizar
 </aside>
 <h1 id='supervision'>Supervisión</h1><h2 id='supervisar-vechiculo'>Supervisar vechículo</h2>
 <blockquote>
@@ -3595,7 +3650,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-35'>Body</h3>
+<h3 id='body-36'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -3695,7 +3750,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-36'>Body</h3>
+<h3 id='body-37'>Body</h3>
 <p>No requerido</p>
 
       </div>
