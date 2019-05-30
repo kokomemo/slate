@@ -307,13 +307,13 @@ token | Token de recuperación |     1
 }
 ```
 Permite registrar admins cliente, admins ind, instaladores, supervisores, choferes, moderadores. Se puede registrar varios usuarios a la vez. Para esto se utiliza un body de tipo raw, mandando un arreglo de objetos.
-Al crear un usuario, se le asigna por default un status 1 (Desbloqueado) y la compañía del usuario que hizo el registro. <br><br>
+Al crear un usuario, se le asigna por default un status 1 (Desbloqueado) y la compañía del usuario que hizo el registro. 
 
 Notas:
 
-En caso de ser un super Admin Soltek el que está registrando usuarios podrá asignar compañías a los usuarios creados.
+* En caso de ser un super Admin Soltek el que está registrando usuarios podrá asignar compañías a los usuarios creados.
 
-Si no es un super Admin Soltek, a todos los usuarios registrados, se les asignará siempre la compañía del Admin que los esté creando.
+* Si no es un super Admin Soltek, a todos los usuarios registrados, se les asignará siempre la compañía del Admin que los esté creando.
 
 Éste endpoint se realizó de esta manera debido a que para el flujo de pasar un admin ind a admin cliente, se pueden dar de alta varios usuarios a la vez (administradores, moderadores, supervisores e instaladores)
 
@@ -376,6 +376,10 @@ La información requerida para realizar un registro secundario, es similar a la 
 
 }]
 
+<aside class="notice">
+Endpoint utilizado para registrar administradores, moderadores, instaladores, supervisores, choferes 
+</aside>
+
 ## Eliminar Usuarios
 >Response:
 
@@ -396,6 +400,15 @@ La información requerida para realizar un registro secundario, es similar a la 
 ``` 
 
 Sólo se cambia el estatus del usuario, no se elimina de la base de datos.
+
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+2  | Admin cliente
+3  | Admin ind 
+9  | Moderadores
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -441,6 +454,14 @@ No requerido
     "data": null
 }
 ```
+
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+2  | Admin cliente
+3  | Admin ind 
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -630,6 +651,14 @@ type | User type  |     0
 
 Mustra todos los usuarios, incidencias, vehículos supervisados y total de vehiculos pertenecientes a cada compañía. Servicio utilizado para mostrar listado de Admins cliente y Admins ind en CMS y App
 
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+4  | Supervisor Soltek
+5  | Instalador Soltek 
+
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
 GET |  get users by company| {{url}}/api/staff/dashboard-clients
@@ -682,6 +711,13 @@ No aplica.
 
 Las compañías podrán consultar los choferes que tienen registrados. 
 
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+2  | Admin cliente
+3  | Admin ind  
+
 <aside class="notice">
 Este servicio se utiliza para CMS y APP de Admin cliente o Admin ind. Para el CMS de Super admin, utilizar el endpoint mencionado en la sección de Choferes de CMS-ENDPOINTS <code>( {{url}}/api/staff/catalog-companies-drivers )</code>
 </aside>
@@ -705,7 +741,7 @@ No requerido
 
 # CMS-ENDPOINTS
 
-Sólo podrán acceder a CMS los siguientes usuario:
+Sólo podrán acceder a CMS los siguientes usuarios:
 
 id | Rol
 ---|------
@@ -750,6 +786,15 @@ id | Rol
 ```
 
 Se muestran estadisticas sobre los clientes registrados, vehiculos registrados y vehiculos supervisados, los cuales se podrán consultar por periodos. (Mes actual, Mes anterior, Historico). Si se trata de un Super admin soltek, se muestra estadisticas de todas las compañías.
+
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+2  | Admin cliente
+3  | Admin ind
+   | Moderadores 
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -800,6 +845,12 @@ period | 2019-01-01  |     1
 }
 ```
 
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin  
+
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
 POST | update limit subscription | {{url}}/api/staff/update-subscription-limit
@@ -819,7 +870,7 @@ Autorization | Bearer eyJ0eXAiOiJKV1Q...
 Key   | Value | Mandatory
 ---------|-------------|----------
 fk_company | Identificador de la compañía a modificar |     1
-users_limit | Limite de usuarios a registrar |     1
+users_limit | Limite de usuarios a registrar |     0
 vehicles_limit | Limite de vehiculos a registrar |     1
 
 ## Bloquear/Desbloquear compañías
@@ -840,6 +891,12 @@ vehicles_limit | Limite de vehiculos a registrar |     1
     "data": ""
 }
 ```
+
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -900,6 +957,12 @@ active | estatus de compañía |     1
 ```
 
 Para realizar el cambio de rol, el cliente debe ser de tipo 3 (Admin Ind). Al llevar a cabo este servicio, el cliente seleccionado cambiará su tipo a Admin cliente (2), después de haber realizado el proceso de alta de cliente.
+
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin 
 
 <aside class="warning">
 Éste servicio puede cambiar, falta definir algunos 
@@ -962,7 +1025,13 @@ Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>.
   }
 ```
 
-Devuelve **TODOS** los usuarios registrados. Este servicio alimenta el modulo para enlistar **equipo soltek**, **Instaladores y supervisores**
+Devuelve **TODOS** los usuarios registrados. Este servicio se utiliza para los casos que se quiera consultar sólo el listado de usuarios (sin compañía) registrados de todas las compañías 
+
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -1005,7 +1074,15 @@ No requerido
 }
 ```
 
-Devuelve todos los vehiculos registrados. Si es un Super Admin Soltek, se mostrarán el total de vehiculos registrados por todos los usuarios. Si es un Admin ind o cliente, sólo se le mostrará los vehiculos registrados pertenecientes a su compañía.
+Devuelve vehiculos registrados por todas las compañías. También se puede consultar vehículos por compañía en específico.
+
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+2  | Admin cliente
+3  | Admin ind
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -1049,6 +1126,16 @@ No requerido
     "data": null
 }
 ```
+
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+2  | Admin cliente
+3  | Admin ind
+5  | Instalador Soltek
+7  | Instalador cliente 
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -1098,6 +1185,14 @@ fk_driver_id | Chofer asignado  |     0
 
 El vehiculo no se elimina de la base de datos, sólo se cambia el status y se deja de mostrar en la vista.
 
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+2  | Admin cliente
+3  | Admin ind
+
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
 DELETE | disable vehicle STAFF | {{url}}/api/staff/vehicle/vehicle_id
@@ -1138,6 +1233,16 @@ Es necesario pasar vehicle_id (id de vehiculo, NO numero de serie) al final de l
 }
 ```
 
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+2  | Admin cliente
+3  | Admin ind
+5  | Instalador Soltek
+7  | Instalador cliente 
+
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
 UPDATE | update vehicle STAFF | {{url}}/api/staff/vehicle/vehicle_id
@@ -1174,7 +1279,82 @@ fk_vehicle_model | Modelo id  |     0
 fk_driver_id | Chofer asignado  |     0
 
 ## Ficha técnica
+>Response:
 
+```shell
+{
+    "success": 0,
+    "message": "Permisos insuficientes",
+    "data": []
+}
+```
+
+```json
+{
+    "success": 1,
+    "message": "Instalación mostrada correctamente",
+    "data": [
+        {
+            "economic_number": null,
+            "serial_number": "WmW3NaEFKWaaJXLUdUrFCEuLqQUBbzv3ee7Shd8UFX4GpnMEuVELVT5a4M",
+            "security_kit": "Antisifon Tanksafe Standard",
+            "group_installation": "Tanque piloto",
+            "group_installation_id": 1,
+            "revision_point": "Antisifon",
+            "revision_point_id": 1,
+            "installation_description": "Esto es una prueba",
+            "installation_checked": 1,
+            "installation_foliate_stamp": "asdas1",
+            "created_at": "2019-05-29 14:44:47",
+            "updated_at": null,
+            "images": [
+                {
+                    "url": "https://soltek-staging.s3.us-west-2.amazonaws.com/installation/vehicle_1/0HxetssF3wBO9qjqWq5OhMK_install.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIYSAD6GNEQTV6FPA%2F20190529%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20190529T202216Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=33fe6e39d5d12634b4bd6e1b1a626a7e46b4ee6f1e8f1d9f7766ddffd1e06435",
+                    "created_at": "2019-05-29 14:44:47"
+                }
+            
+            ]
+        }
+    ]
+}
+```
+
+Se muestra historial de instalación realizada de un vehículo espcífico. 
+
+También se puede utilizar para listar proceso de instalación, para el rol de instalador y supervisor 
+
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+2  | Admin cliente
+4  | Supervisor Soltek
+5  | Instalador Soltek
+6  | Supervisor cliente
+7  | Instalador cliente 
+
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+GET | show INSTALL | {{url}}/api/install/show/{vehicle_id}
+
+### Headers
+
+Key  | Value 
+-----|-----
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+### Body
+
+No aplica.
+
+<aside class="notice">
+<code>"installation_description"</code> se utilizará en caso de que en una actualización se deseé agregar comentarios acerca de la instalación. <br><br>
+<code>{vehicle_id}</code> = id de vehículo sin tokenizar
+</aside>
+
+## Detalle ficha técnica
 >Response:
 
 ```shell
@@ -1232,7 +1412,20 @@ fk_driver_id | Chofer asignado  |     0
 }
 ```
 
-Este servicio se utiliza para mostrar instalación de un vehículo específico
+Este servicio se utiliza para mostrar detalles de un grupo de revisión seleccionado desde la ficha técnica de un vehículo
+
+También se puede utilizar para listar detalle de un grupo de revisión, para el rol de instalador y supervisor 
+
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+2  | Admin cliente
+4  | Supervisor Soltek
+5  | Instalador Soltek
+6  | Supervisor cliente
+7  | Instalador cliente
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -1300,6 +1493,12 @@ Servicio sin funcionar en staging. <code>REVISAR</code>. No se realiza búsqueda
 ```
 Muestra los modelos correspondientes a cada marca. Este servicio se utiliza para seleccionar marca y modelo en el proceso para dar alta vehículos
 
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
 GET | show catalog vehicles STAFF | {{url}}/api/staff/catalog-vehicles
@@ -1343,6 +1542,13 @@ No requerido
     "data": ""
 }
 ```
+
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
 POST | create new model vehicle ADMIN | {{url}}/api/staff/create-model-vehicle
@@ -1389,6 +1595,12 @@ name_brand | Nombre de la marca nueva | 0 | Si quieres crear una nueva marca, en
     "data": null
 }
 ```
+
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -1453,6 +1665,12 @@ brand_id | Marca a eliminar | 1 | Si sólo se manda este campo, se borra toda la
 
 Muestra los todos los choferes correspondientes a cada cliente (compañía).
 
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
 GET | show companies and drivers | {{url}}/api/staff/catalog-companies-drivers
@@ -1494,6 +1712,14 @@ Autorization | Bearer eyJ0eXAiOiJKV1Q...
 }
 ```
 
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+2  | Admin cliente
+3  | Admin ind
+
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
 POST | update driver | {{url}}/api/staff/update/driver
@@ -1524,20 +1750,27 @@ fk_company | Company id  |     0
 >Response: 
 
 ```shell
-```
 {
     "success": 0,
     "message": "Hacen falta datos para completar el registro",
     "data": null
 }
-
+```
 ```json
 {
     "success": 1,
-    "message": "Modelo y/o marca creados correctamnte",
+    "message": "Base creada correctamente",
     "data": ""
 }
 ```
+
+Se puede dar de alta sólo bases o se puede crear bases con usuarios y vehículos.
+
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -1568,6 +1801,12 @@ fk_company | Compañía asignada a la base  | 1 |
 
 ```json
 ```
+
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
@@ -1626,6 +1865,12 @@ fk_company | Compañía asignada a la base  | 1 |
 
 Muestra listado de bases registradas, con sus vehiculos y choferes pertenecientes
 
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
 GET | get base admin | {{url}}/api/staff/get-base
@@ -1660,6 +1905,14 @@ No requerido.
 ```
 Sirve para asignarle un vehículo y una base a un chofer
 
+Roles permitidos para realizar ésta petición:
+
+Id | Rol
+---|----
+1  | Super Admin
+2  | Admin cliente
+3  | Admin ind
+
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
 POST | assign-vehicle | {{url}}/api/staff/assign-vehicle
@@ -1693,7 +1946,6 @@ id | Rol
  5 | Instalador Soltek
  6 | Supervisor cliente
  7 | Instalador cliente 
- 9 | Moderador 
 
 # Usuarios
 
@@ -1918,47 +2170,60 @@ fk_driver_id | Chofer asignado  |     0
     "data": [
         {
             "name": "Antisifon Tanksafe Standard",
+            "id": 1,
             "elements": [
                 {
+                    "id": 1,
                     "description": "Antisifon"
                 }
             ]
         },
         {
             "name": "Antisifon Tanksafe Impregnable",
+            "id": 2,
             "elements": [
                 {
+                    "id": 1,
                     "description": "Antisifon"
                 }
             ]
         },
         {
             "name": "Candado Respiradero BreatherSafe",
+            "id": 3,
             "elements": [
                 {
+                    "id": 2,
                     "description": "Respiradero"
                 }
             ]
         },
         {
             "name": "Kit Protección Mangueras",
+            "id": 4,
             "elements": [
                 {
+                    "id": 3,
                     "description": "Manguera inyeccion"
                 },
                 {
+                    "id": 4,
                     "description": "Manguera retorno"
                 },
                 {
+                    "id": 5,
                     "description": "Flotador"
                 },
                 {
+                    "id": 6,
                     "description": "Drenes"
                 },
                 {
+                    "id": 7,
                     "description": "Filtro"
                 },
                 {
+                    "id": 8,
                     "description": "Mangueras"
                 }
             ]
@@ -1967,7 +2232,7 @@ fk_driver_id | Chofer asignado  |     0
 }
 ```
 
-Se muestra listado de kits de seguridad con sus grupos de instalación pertenecientes.
+Se muestra listado de kits de seguridad con sus grupos de revisión pertenecientes.
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
