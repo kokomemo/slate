@@ -2335,7 +2335,7 @@ revision_point_id | Identificador de punto de revisión (id) | 1
             "updated_at": null,
             "images": [
                 {
-                    "url": "https://soltek-staging.s3.us-west-2.amazonaws.com/installation/vehicle_1/0HxetssF3wBO9qjqWq5OhMK_install.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIYSAD6GNEQTV6FPA%2F20190529%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20190529T202216Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Signature=33fe6e39d5d12634b4bd6e1b1a626a7e46b4ee6f1e8f1d9f7766ddffd1e06435",
+                    "url": "https://soltek-staging.s3.us-west-...",
                     "created_at": "2019-05-29 14:44:47"
                 }
             
@@ -2345,7 +2345,7 @@ revision_point_id | Identificador de punto de revisión (id) | 1
 }
 ```
 
-Se muestra instalación realizada de un vehículo espcífico. (Para Instalador y Supervisor)
+Se muestra instalación realizada de un vehículo espcífico.
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
