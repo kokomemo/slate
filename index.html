@@ -837,13 +837,17 @@ Asegurate de reemplazar <code>{{url}}}</code> en tu API URL.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Permite registrar admins cliente, admins ind, instaladores, supervisores, choferes, moderadores. Se puede registrar varios usuarios a la vez. Para esto se utiliza un body de tipo raw, mandando un arreglo de objetos.
-Al crear un usuario, se le asigna por default un status 1 (Desbloqueado) y la compañía del usuario que hizo el registro.</p>
+Al crear un usuario, se le asigna por default un status 1 (Desbloqueado) y la compañía del usuario que hizo el registro. <br><br></p>
 
-<p>En caso de ser un super Admin Soltek el que está registrando usuarios y si está dando de alta un chofer, se puede asignar una compañía en específico. </p>
+<p>Notas:</p>
+
+<p>En caso de ser un super Admin Soltek el que está registrando usuarios podrá asignar compañías a los usuarios creados.</p>
+
+<p>Si no es un super Admin Soltek, a todos los usuarios registrados, se les asignará siempre la compañía del Admin que los esté creando.</p>
 
 <p>Éste endpoint se realizó de esta manera debido a que para el flujo de pasar un admin ind a admin cliente, se pueden dar de alta varios usuarios a la vez (administradores, moderadores, supervisores e instaladores)</p>
 
-<p>Roles para permitidos para realizar ésta petición:</p>
+<p>Roles permitidos para realizar ésta petición:</p>
 
 <table><thead>
 <tr>
@@ -862,6 +866,10 @@ Al crear un usuario, se le asigna por default un status 1 (Desbloqueado) y la co
 <tr>
 <td>3</td>
 <td>Admin ind</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Moderadores</td>
 </tr>
 </tbody></table>
 
