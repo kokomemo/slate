@@ -322,6 +322,9 @@
                   <li>
                     <a href="#ficha-tecnica" class="toc-h2 toc-link" data-title="Ficha técnica">Ficha técnica</a>
                   </li>
+                  <li>
+                    <a href="#detalle-ficha-tecnica" class="toc-h2 toc-link" data-title="Detalle ficha técnica">Detalle ficha técnica</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -837,13 +840,14 @@ Asegurate de reemplazar <code>{{url}}}</code> en tu API URL.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Permite registrar admins cliente, admins ind, instaladores, supervisores, choferes, moderadores. Se puede registrar varios usuarios a la vez. Para esto se utiliza un body de tipo raw, mandando un arreglo de objetos.
-Al crear un usuario, se le asigna por default un status 1 (Desbloqueado) y la compañía del usuario que hizo el registro. <br><br></p>
+Al crear un usuario, se le asigna por default un status 1 (Desbloqueado) y la compañía del usuario que hizo el registro. </p>
 
 <p>Notas:</p>
 
-<p>En caso de ser un super Admin Soltek el que está registrando usuarios podrá asignar compañías a los usuarios creados.</p>
-
-<p>Si no es un super Admin Soltek, a todos los usuarios registrados, se les asignará siempre la compañía del Admin que los esté creando.</p>
+<ul>
+<li><p>En caso de ser un super Admin Soltek el que está registrando usuarios podrá asignar compañías a los usuarios creados.</p></li>
+<li><p>Si no es un super Admin Soltek, a todos los usuarios registrados, se les asignará siempre la compañía del Admin que los esté creando.</p></li>
+</ul>
 
 <p>Éste endpoint se realizó de esta manera debido a que para el flujo de pasar un admin ind a admin cliente, se pueden dar de alta varios usuarios a la vez (administradores, moderadores, supervisores e instaladores)</p>
 
@@ -944,6 +948,10 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <p>&quot;type&quot;: 3</p>
 
 <p>}]</p>
+
+<aside class="notice">
+Endpoint utilizado para registrar administradores, moderadores, instaladores, supervisores, choferes 
+</aside>
 <h2 id='eliminar-usuarios'>Eliminar Usuarios</h2>
 <blockquote>
 <p>Response:</p>
@@ -960,6 +968,32 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Sólo se cambia el estatus del usuario, no se elimina de la base de datos.</p>
+
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Admin cliente</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Admin ind</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Moderadores</td>
+</tr>
+</tbody></table>
 
 <table><thead>
 <tr>
@@ -1015,6 +1049,28 @@ Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Admin cliente</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Admin ind</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -1318,6 +1374,28 @@ Asegurate de reemplazar <code>{{url}}}</code> en tu API URL.
 </span></code></pre>
 <p>Mustra todos los usuarios, incidencias, vehículos supervisados y total de vehiculos pertenecientes a cada compañía. Servicio utilizado para mostrar listado de Admins cliente y Admins ind en CMS y App</p>
 
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Supervisor Soltek</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Instalador Soltek</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -1379,6 +1457,24 @@ Asegurate de reemplazar <code>{{url}}}</code> en tu API URL.
 </span></code></pre>
 <p>Las compañías podrán consultar los choferes que tienen registrados. </p>
 
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>2</td>
+<td>Admin cliente</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Admin ind</td>
+</tr>
+</tbody></table>
+
 <aside class="notice">
 Este servicio se utiliza para CMS y APP de Admin cliente o Admin ind. Para el CMS de Super admin, utilizar el endpoint mencionado en la sección de Choferes de CMS-ENDPOINTS <code>( {{url}}/api/staff/catalog-companies-drivers )</code>
 </aside>
@@ -1415,7 +1511,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <h3 id='body-12'>Body</h3>
 <p>No requerido</p>
 <h1 id='cms-endpoints'>CMS-ENDPOINTS</h1>
-<p>Sólo podrán acceder a CMS los siguientes usuario:</p>
+<p>Sólo podrán acceder a CMS los siguientes usuarios:</p>
 
 <table><thead>
 <tr>
@@ -1470,6 +1566,32 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Se muestran estadisticas sobre los clientes registrados, vehiculos registrados y vehiculos supervisados, los cuales se podrán consultar por periodos. (Mes actual, Mes anterior, Historico). Si se trata de un Super admin soltek, se muestra estadisticas de todas las compañías.</p>
+
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Admin cliente</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Admin ind</td>
+</tr>
+<tr>
+<td></td>
+<td>Moderadores</td>
+</tr>
+</tbody></table>
 
 <table><thead>
 <tr>
@@ -1545,6 +1667,20 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -1598,7 +1734,7 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
 <tr>
 <td>users_limit</td>
 <td>Limite de usuarios a registrar</td>
-<td>1</td>
+<td>0</td>
 </tr>
 <tr>
 <td>vehicles_limit</td>
@@ -1621,6 +1757,20 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -1709,6 +1859,20 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Para realizar el cambio de rol, el cliente debe ser de tipo 3 (Admin Ind). Al llevar a cabo este servicio, el cliente seleccionado cambiará su tipo a Admin cliente (2), después de haber realizado el proceso de alta de cliente.</p>
+
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+</tbody></table>
 
 <aside class="warning">
 Éste servicio puede cambiar, falta definir algunos 
@@ -1805,7 +1969,21 @@ Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>.
      </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Devuelve <strong>TODOS</strong> los usuarios registrados. Este servicio alimenta el modulo para enlistar <strong>equipo soltek</strong>, <strong>Instaladores y supervisores</strong></p>
+<p>Devuelve <strong>TODOS</strong> los usuarios registrados. Este servicio se utiliza para los casos que se quiera consultar sólo el listado de usuarios (sin compañía) registrados de todas las compañías </p>
+
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+</tbody></table>
 
 <table><thead>
 <tr>
@@ -1859,7 +2037,29 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Devuelve todos los vehiculos registrados. Si es un Super Admin Soltek, se mostrarán el total de vehiculos registrados por todos los usuarios. Si es un Admin ind o cliente, sólo se le mostrará los vehiculos registrados pertenecientes a su compañía.</p>
+<p>Devuelve vehiculos registrados por todas las compañías. También se puede consultar vehículos por compañía en específico.</p>
+
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Admin cliente</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Admin ind</td>
+</tr>
+</tbody></table>
 
 <table><thead>
 <tr>
@@ -1920,6 +2120,36 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Admin cliente</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Admin ind</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Instalador Soltek</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Instalador cliente</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -2009,6 +2239,28 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </span></code></pre>
 <p>El vehiculo no se elimina de la base de datos, sólo se cambia el status y se deja de mostrar en la vista.</p>
 
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Admin cliente</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Admin ind</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -2059,6 +2311,36 @@ Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo,
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Admin cliente</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Admin ind</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Instalador Soltek</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Instalador cliente</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -2147,6 +2429,113 @@ Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo,
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="o">{</span>
     <span class="s2">"success"</span>: 0,
+    <span class="s2">"message"</span>: <span class="s2">"Permisos insuficientes"</span>,
+    <span class="s2">"data"</span>: <span class="o">[]</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Instalación mostrada correctamente"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"economic_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"serial_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WmW3NaEFKWaaJXLUdUrFCEuLqQUBbzv3ee7Shd8UFX4GpnMEuVELVT5a4M"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"security_kit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antisifon Tanksafe Standard"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"group_installation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tanque piloto"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"group_installation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"revision_point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antisifon"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"revision_point_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"installation_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Esto es una prueba"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"installation_checked"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"installation_foliate_stamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asdas1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-29 14:44:47"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://soltek-staging.s3.us-west-2.amazonaws.com/installation/vehicle_1/0HxetssF3wBO9qjqWq5OhMK_install.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIYSAD6GNEQTV6FPA%2F20190529%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20190529T202216Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=7200&amp;X-Amz-Signature=33fe6e39d5d12634b4bd6e1b1a626a7e46b4ee6f1e8f1d9f7766ddffd1e06435"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-29 14:44:47"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Se muestra historial de instalación realizada de un vehículo espcífico. </p>
+
+<p>También se puede utilizar para listar proceso de instalación, para el rol de instalador y supervisor </p>
+
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Admin cliente</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Supervisor Soltek</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Instalador Soltek</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Supervisor cliente</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Instalador cliente</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>HTTP Request</th>
+<th>Name Endpoint</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>show INSTALL</td>
+<td>{{url}}/api/install/show/{vehicle_id}</td>
+</tr>
+</tbody></table>
+<h3 id='headers-21'>Headers</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Autorization</td>
+<td>Bearer eyJ0eXAiOiJKV1Q...</td>
+</tr>
+</tbody></table>
+<h3 id='body-21'>Body</h3>
+<p>No aplica.</p>
+
+<aside class="notice">
+<code>"installation_description"</code> se utilizará en caso de que en una actualización se deseé agregar comentarios acerca de la instalación. <br><br>
+<code>{vehicle_id}</code> = id de vehículo sin tokenizar
+</aside>
+<h2 id='detalle-ficha-tecnica'>Detalle ficha técnica</h2>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"success"</span>: 0,
     <span class="s2">"message"</span>: <span class="s2">"Información ingresada no coincide con el vehículo registrado"</span>,
     <span class="s2">"data"</span>: null
 <span class="o">}</span>
@@ -2195,7 +2584,43 @@ Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo,
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Este servicio se utiliza para mostrar instalación de un vehículo específico</p>
+<p>Este servicio se utiliza para mostrar detalles de un grupo de revisión seleccionado desde la ficha técnica de un vehículo</p>
+
+<p>También se puede utilizar para listar detalle de un grupo de revisión, para el rol de instalador y supervisor </p>
+
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Admin cliente</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Supervisor Soltek</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Instalador Soltek</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Supervisor cliente</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Instalador cliente</td>
+</tr>
+</tbody></table>
 
 <table><thead>
 <tr>
@@ -2210,7 +2635,7 @@ Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo,
 <td>{{url}}/api/install/search</td>
 </tr>
 </tbody></table>
-<h3 id='headers-21'>Headers</h3>
+<h3 id='headers-22'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2222,7 +2647,7 @@ Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo,
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-21'>Body</h3>
+<h3 id='body-22'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2303,6 +2728,20 @@ Servicio sin funcionar en staging. <code>REVISAR</code>. No se realiza búsqueda
 </span></code></pre>
 <p>Muestra los modelos correspondientes a cada marca. Este servicio se utiliza para seleccionar marca y modelo en el proceso para dar alta vehículos</p>
 
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -2320,7 +2759,7 @@ Servicio sin funcionar en staging. <code>REVISAR</code>. No se realiza búsqueda
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL. 
 </aside>
-<h3 id='headers-22'>Headers</h3>
+<h3 id='headers-23'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2340,7 +2779,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-22'>Body</h3>
+<h3 id='body-23'>Body</h3>
 <p>No requerido</p>
 <h2 id='crear-marcas-y-modelos'>Crear Marcas y Modelos</h2>
 <blockquote>
@@ -2363,6 +2802,20 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -2376,7 +2829,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/create-model-vehicle</td>
 </tr>
 </tbody></table>
-<h3 id='headers-23'>Headers</h3>
+<h3 id='headers-24'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2396,7 +2849,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-23'>Body</h3>
+<h3 id='body-24'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2449,6 +2902,20 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -2462,7 +2929,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/delete-model-vehicle</td>
 </tr>
 </tbody></table>
-<h3 id='headers-24'>Headers</h3>
+<h3 id='headers-25'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2482,7 +2949,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-24'>Body</h3>
+<h3 id='body-25'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2544,6 +3011,20 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </span></code></pre>
 <p>Muestra los todos los choferes correspondientes a cada cliente (compañía).</p>
 
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -2561,7 +3042,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL. 
 </aside>
-<h3 id='headers-25'>Headers</h3>
+<h3 id='headers-26'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2602,6 +3083,28 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Admin cliente</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Admin ind</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -2615,7 +3118,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/update/driver</td>
 </tr>
 </tbody></table>
-<h3 id='headers-26'>Headers</h3>
+<h3 id='headers-27'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2635,7 +3138,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-25'>Body</h3>
+<h3 id='body-26'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2677,18 +3180,33 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <blockquote>
 <p>Response: </p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code></code></pre>
-<p>{
-    &quot;success&quot;: 0,
-    &quot;message&quot;: &quot;Hacen falta datos para completar el registro&quot;,
-    &quot;data&quot;: null
-}</p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"success"</span>: 0,
+    <span class="s2">"message"</span>: <span class="s2">"Hacen falta datos para completar el registro"</span>,
+    <span class="s2">"data"</span>: null
+<span class="o">}</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Modelo y/o marca creados correctamnte"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Base creada correctamente"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Se puede dar de alta sólo bases o se puede crear bases con usuarios y vehículos.</p>
+
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -2702,7 +3220,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/create-base</td>
 </tr>
 </tbody></table>
-<h3 id='headers-27'>Headers</h3>
+<h3 id='headers-28'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2714,7 +3232,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-26'>Body</h3>
+<h3 id='body-27'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2757,6 +3275,20 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <p>Response:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code></code></pre><pre class="highlight json tab-json"><code></code></pre>
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -2770,7 +3302,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/update-base</td>
 </tr>
 </tbody></table>
-<h3 id='headers-28'>Headers</h3>
+<h3 id='headers-29'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2782,7 +3314,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-27'>Body</h3>
+<h3 id='body-28'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2852,6 +3384,20 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </span></code></pre>
 <p>Muestra listado de bases registradas, con sus vehiculos y choferes pertenecientes</p>
 
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -2865,7 +3411,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/get-base</td>
 </tr>
 </tbody></table>
-<h3 id='headers-29'>Headers</h3>
+<h3 id='headers-30'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2877,7 +3423,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-28'>Body</h3>
+<h3 id='body-29'>Body</h3>
 <p>No requerido.</p>
 <h2 id='asignar-choferes-a-vehiculos'>Asignar Choferes a vehículos</h2>
 <blockquote>
@@ -2896,6 +3442,28 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </span></code></pre>
 <p>Sirve para asignarle un vehículo y una base a un chofer</p>
 
+<p>Roles permitidos para realizar ésta petición:</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Rol</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Super Admin</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Admin cliente</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Admin ind</td>
+</tr>
+</tbody></table>
+
 <table><thead>
 <tr>
 <th>HTTP Request</th>
@@ -2909,7 +3477,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/assign-vehicle</td>
 </tr>
 </tbody></table>
-<h3 id='headers-30'>Headers</h3>
+<h3 id='headers-31'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2921,7 +3489,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-29'>Body</h3>
+<h3 id='body-30'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -2986,10 +3554,6 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>7</td>
 <td>Instalador cliente</td>
 </tr>
-<tr>
-<td>9</td>
-<td>Moderador</td>
-</tr>
 </tbody></table>
 <h1 id='usuarios-2'>Usuarios</h1><h2 id='registro-de-usuarios'>Registro de usuarios</h2>
 <blockquote>
@@ -3038,7 +3602,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/register</td>
 </tr>
 </tbody></table>
-<h3 id='headers-31'>Headers</h3>
+<h3 id='headers-32'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3054,7 +3618,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>es_mx</td>
 </tr>
 </tbody></table>
-<h3 id='body-30'>Body</h3>
+<h3 id='body-31'>Body</h3>
 <p>Type form-data</p>
 
 <table><thead>
@@ -3135,7 +3699,7 @@ Si no se manda el &quot;company&quot;, se crea una compañía llamada igual que 
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </aside>
-<h3 id='headers-32'>Headers</h3>
+<h3 id='headers-33'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3147,7 +3711,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-31'>Body</h3>
+<h3 id='body-32'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -3228,7 +3792,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="notice">
 Example id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
 </aside>
-<h3 id='headers-33'>Headers</h3>
+<h3 id='headers-34'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3278,7 +3842,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="notice">
 Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
 </aside>
-<h3 id='headers-34'>Headers</h3>
+<h3 id='headers-35'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3296,7 +3860,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 </tbody></table>
 <h3 id='url-6'>URL</h3>
 <p>Es necesario pasar vehicle_id (id de vehiculo, NO numero de serie) al final de la URL del endpoint</p>
-<h3 id='body-32'>Body</h3>
+<h3 id='body-33'>Body</h3>
 <ul>
 <li>Type x-www-form-urlencoded</li>
 </ul>
@@ -3349,47 +3913,60 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antisifon Tanksafe Standard"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antisifon"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antisifon Tanksafe Impregnable"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
             </span><span class="s2">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antisifon"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Candado Respiradero BreatherSafe"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
             </span><span class="s2">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Respiradero"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kit Protección Mangueras"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
             </span><span class="s2">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manguera inyeccion"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manguera retorno"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flotador"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Drenes"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Filtro"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mangueras"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -3397,7 +3974,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Se muestra listado de kits de seguridad con sus grupos de instalación pertenecientes.</p>
+<p>Se muestra listado de kits de seguridad con sus grupos de revisión pertenecientes.</p>
 
 <table><thead>
 <tr>
@@ -3412,7 +3989,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>{{url}}/api/install/security-kit-list</td>
 </tr>
 </tbody></table>
-<h3 id='headers-35'>Headers</h3>
+<h3 id='headers-36'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3424,7 +4001,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-33'>Body</h3>
+<h3 id='body-34'>Body</h3>
 <p>No aplica.</p>
 <h2 id='instalar-kit-de-seguridad'>Instalar kit de seguridad</h2>
 <blockquote>
@@ -3486,7 +4063,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>{{url}}/api/install/install?=</td>
 </tr>
 </tbody></table>
-<h3 id='headers-36'>Headers</h3>
+<h3 id='headers-37'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3498,7 +4075,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-34'>Body</h3>
+<h3 id='body-35'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -3593,7 +4170,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>{{url}}/api/install/show/{vehicle_id}</td>
 </tr>
 </tbody></table>
-<h3 id='headers-37'>Headers</h3>
+<h3 id='headers-38'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3605,7 +4182,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-35'>Body</h3>
+<h3 id='body-36'>Body</h3>
 <p>No aplica.</p>
 
 <aside class="notice">
@@ -3646,7 +4223,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>{{url}}/api/install/revision</td>
 </tr>
 </tbody></table>
-<h3 id='headers-38'>Headers</h3>
+<h3 id='headers-39'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3658,7 +4235,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-36'>Body</h3>
+<h3 id='body-37'>Body</h3>
 <ul>
 <li>Type form-data</li>
 </ul>
@@ -3746,7 +4323,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </aside>
-<h3 id='headers-39'>Headers</h3>
+<h3 id='headers-40'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3758,7 +4335,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>Bearer eyJ0eXAiOiJKV1Q...</td>
 </tr>
 </tbody></table>
-<h3 id='body-37'>Body</h3>
+<h3 id='body-38'>Body</h3>
 <p>No requerido</p>
 
       </div>
