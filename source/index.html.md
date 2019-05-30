@@ -307,19 +307,24 @@ token | Token de recuperación |     1
 }
 ```
 Permite registrar admins cliente, admins ind, instaladores, supervisores, choferes, moderadores. Se puede registrar varios usuarios a la vez. Para esto se utiliza un body de tipo raw, mandando un arreglo de objetos.
-Al crear un usuario, se le asigna por default un status 1 (Desbloqueado) y la compañía del usuario que hizo el registro.
+Al crear un usuario, se le asigna por default un status 1 (Desbloqueado) y la compañía del usuario que hizo el registro. <br><br>
 
-En caso de ser un super Admin Soltek el que está registrando usuarios y si está dando de alta un chofer, se puede asignar una compañía en específico. 
+Notas:
+
+En caso de ser un super Admin Soltek el que está registrando usuarios podrá asignar compañías a los usuarios creados.
+
+Si no es un super Admin Soltek, a todos los usuarios registrados, se les asignará siempre la compañía del Admin que los esté creando.
 
 Éste endpoint se realizó de esta manera debido a que para el flujo de pasar un admin ind a admin cliente, se pueden dar de alta varios usuarios a la vez (administradores, moderadores, supervisores e instaladores)
 
-Roles para permitidos para realizar ésta petición:
+Roles permitidos para realizar ésta petición:
 
 Id | Rol
 ---|----
 1  | Super Admin
 2  | Admin cliente
 3  | Admin ind 
+9  | Moderadores
 
 HTTP Request  | Name Endpoint |  Endpoint
 --------------|---------------|-----------
