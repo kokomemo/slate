@@ -269,6 +269,9 @@
                   <li>
                     <a href="#mostrar-solo-choferes" class="toc-h2 toc-link" data-title="Mostrar Sólo choferes">Mostrar Sólo choferes</a>
                   </li>
+                  <li>
+                    <a href="#obtener-calificacion-de-chofer" class="toc-h2 toc-link" data-title="Obtener calificación de chofer">Obtener calificación de chofer</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1503,6 +1506,54 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </tbody></table>
 <h3 id='body-12'>Body</h3>
 <p>No requerido</p>
+<h2 id='obtener-calificacion-de-chofer'>Obtener calificación de chofer</h2>
+<blockquote>
+<p>Response: </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code></code></pre><pre class="highlight json tab-json"><code></code></pre>
+<p>Servicio utilizado para listado de de choferes</p>
+
+<p>La calificación se realiza automáticamente desde backend</p>
+
+<p>La calificación de cada chofer se calcula con la siguiente formula: </p>
+
+<p>calificacion = base + (#viajes_buenos * valor_por_viaje) - (#viajes_malos * valor_por_viaje)</p>
+
+<p>Donde:</p>
+
+<p>base = 50</p>
+
+<p>valor_por_viaje = 5</p>
+
+<table><thead>
+<tr>
+<th>HTTP Request</th>
+<th>Name Endpoint</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>get rate driver</td>
+<td>{{url}}/api/staff/get_rate/{driver_db_id}</td>
+</tr>
+</tbody></table>
+<h3 id='headers-12'>Headers</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Autorization</td>
+<td>Bearer eyJ0eXAiOiJKV1Q...</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Revisar endpoint, al parecer aún no funciona al 100%
+</aside>
 <h1 id='cms-endpoints'>CMS-ENDPOINTS</h1>
 <p>Sólo podrán acceder a CMS los siguientes usuarios:</p>
 
@@ -1607,7 +1658,7 @@ Asegurate de reemplazar <code>{{url}}}</code> en tu API URL.
 <aside class="notice">
 Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas acerca de vehiculos registrados y vehiculos supervisados. Todo en relación a la compañía a la que pertenecen.
 </aside>
-<h3 id='headers-12'>Headers</h3>
+<h3 id='headers-13'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1687,7 +1738,7 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
 <td>{{url}}/api/staff/update-subscription-limit</td>
 </tr>
 </tbody></table>
-<h3 id='headers-13'>Headers</h3>
+<h3 id='headers-14'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1777,7 +1828,7 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
 <td>{{url}}/api/staff/activate-company</td>
 </tr>
 </tbody></table>
-<h3 id='headers-14'>Headers</h3>
+<h3 id='headers-15'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1884,7 +1935,7 @@ Si el usuario es un Admin ind o Admin cliente, sólo se mostrará estadisticas a
 <td>{{url}}/api/staff/convert-user</td>
 </tr>
 </tbody></table>
-<h3 id='headers-15'>Headers</h3>
+<h3 id='headers-16'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1995,7 +2046,7 @@ Example user_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>.
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </aside>
-<h3 id='headers-16'>Headers</h3>
+<h3 id='headers-17'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2076,7 +2127,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <li>Si se desea consultar la información global de todas las compañías utilizar al final: /all/all/all.</li>
 <li>Si se desea consultar información de compañías, vehículos o usuario en especifico, utilizar al final de URL: /{company_id}/{vehicle_id}/{user_id} </li>
 </ul>
-<h3 id='headers-17'>Headers</h3>
+<h3 id='headers-18'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2160,7 +2211,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </aside>
-<h3 id='headers-18'>Headers</h3>
+<h3 id='headers-19'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2275,7 +2326,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="warning">
 Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo, correspondiente en la base de datos
 </aside>
-<h3 id='headers-19'>Headers</h3>
+<h3 id='headers-20'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2355,7 +2406,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="warning">
 Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo, correspondiente en la base de datos
 </aside>
-<h3 id='headers-20'>Headers</h3>
+<h3 id='headers-21'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2504,7 +2555,7 @@ Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo,
 <td>{{url}}/api/install/show/{vehicle_id}</td>
 </tr>
 </tbody></table>
-<h3 id='headers-21'>Headers</h3>
+<h3 id='headers-22'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2628,7 +2679,7 @@ Asegurate de reemplazar <code>vehicle_id</code>por el id (encrypt) del vehiculo,
 <td>{{url}}/api/install/search</td>
 </tr>
 </tbody></table>
-<h3 id='headers-22'>Headers</h3>
+<h3 id='headers-23'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2752,7 +2803,7 @@ Servicio sin funcionar en staging. <code>REVISAR</code>. No se realiza búsqueda
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL. 
 </aside>
-<h3 id='headers-23'>Headers</h3>
+<h3 id='headers-24'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2822,7 +2873,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/create-model-vehicle</td>
 </tr>
 </tbody></table>
-<h3 id='headers-24'>Headers</h3>
+<h3 id='headers-25'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -2922,7 +2973,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/delete-model-vehicle</td>
 </tr>
 </tbody></table>
-<h3 id='headers-25'>Headers</h3>
+<h3 id='headers-26'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3035,7 +3086,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL. 
 </aside>
-<h3 id='headers-26'>Headers</h3>
+<h3 id='headers-27'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3111,7 +3162,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/update/driver</td>
 </tr>
 </tbody></table>
-<h3 id='headers-27'>Headers</h3>
+<h3 id='headers-28'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3213,7 +3264,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/create-base</td>
 </tr>
 </tbody></table>
-<h3 id='headers-28'>Headers</h3>
+<h3 id='headers-29'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3295,7 +3346,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/update-base</td>
 </tr>
 </tbody></table>
-<h3 id='headers-29'>Headers</h3>
+<h3 id='headers-30'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3404,7 +3455,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/get-base</td>
 </tr>
 </tbody></table>
-<h3 id='headers-30'>Headers</h3>
+<h3 id='headers-31'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3470,7 +3521,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/staff/assign-vehicle</td>
 </tr>
 </tbody></table>
-<h3 id='headers-31'>Headers</h3>
+<h3 id='headers-32'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3595,7 +3646,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <td>{{url}}/api/register</td>
 </tr>
 </tbody></table>
-<h3 id='headers-32'>Headers</h3>
+<h3 id='headers-33'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3692,7 +3743,7 @@ Si no se manda el &quot;company&quot;, se crea una compañía llamada igual que 
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </aside>
-<h3 id='headers-33'>Headers</h3>
+<h3 id='headers-34'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3785,7 +3836,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="notice">
 Example id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
 </aside>
-<h3 id='headers-34'>Headers</h3>
+<h3 id='headers-35'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3835,7 +3886,7 @@ Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 <aside class="notice">
 Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code> 
 </aside>
-<h3 id='headers-35'>Headers</h3>
+<h3 id='headers-36'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -3982,7 +4033,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>{{url}}/api/install/security-kit-list</td>
 </tr>
 </tbody></table>
-<h3 id='headers-36'>Headers</h3>
+<h3 id='headers-37'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -4056,7 +4107,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>{{url}}/api/install/install?=</td>
 </tr>
 </tbody></table>
-<h3 id='headers-37'>Headers</h3>
+<h3 id='headers-38'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -4163,7 +4214,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>{{url}}/api/install/show/{vehicle_id}</td>
 </tr>
 </tbody></table>
-<h3 id='headers-38'>Headers</h3>
+<h3 id='headers-39'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -4216,7 +4267,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <td>{{url}}/api/install/revision</td>
 </tr>
 </tbody></table>
-<h3 id='headers-39'>Headers</h3>
+<h3 id='headers-40'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -4309,7 +4360,7 @@ Example vehicle_id: <code>eyJpdiI6IlVrczNRb3Rsdng3W...</code>
 <aside class="notice">
 Asegurate de reemplazar <code>{{url}}}</code>por el API URL.
 </aside>
-<h3 id='headers-40'>Headers</h3>
+<h3 id='headers-41'>Headers</h3>
 <table><thead>
 <tr>
 <th>Key</th>
