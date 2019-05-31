@@ -2359,7 +2359,7 @@ Autorization | Bearer eyJ0eXAiOiJKV1Q...
 
 ### Body
 
-No aplica.
+No aplica. https://github.com/kokomemo/slate
 
 <aside class="notice">
 <code>"installation_description"</code> se utilizará en caso de que en una actualización se deseé agregar comentarios acerca de la instalación. <br><br>
@@ -2432,23 +2432,16 @@ failed | Enviar "1" si hay alguna falla | 0
     "message": null,
     "data": [
         {
+            "id": 5,
             "name": "Chofer 1",
-            "last_name": "Chofer",
-            "driver_number": "",
+            "last_name": "chofer",
+            "driver_number": "123456789",
             "status": 1,
-            "company": "KokonutStudio",
-            "user_id": 8,
-            "incidents": 0,
-            "status_description": "Active"
-        },
-        {
-            "name": "Chofer 2",
-            "last_name": "Chofer",
-            "driver_number": "",
-            "status": 1,
-            "company": "KokonutStudio",
-            "user_id": 25,
-            "incidents": 0,
+            "company": "Empresa1",
+            "base": "GDL",
+            "user_id": 5,
+            "incidents": 1,
+            "grade": "",
             "status_description": "Active"
         }
     ]
