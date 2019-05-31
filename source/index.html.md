@@ -732,6 +732,43 @@ Autorization | Bearer eyJ0eXAiOiJKV1Q...
 ### Body
 No requerido
 
+## Obtener calificación de chofer
+>Response: 
+
+```shell
+```
+
+```json
+```
+
+Servicio utilizado para listado de de choferes
+
+La calificación se realiza automáticamente desde backend
+
+La calificación de cada chofer se calcula con la siguiente formula: 
+
+calificacion = base + (#viajes_buenos * valor_por_viaje) - (#viajes_malos * valor_por_viaje)
+
+Donde:
+
+base = 50
+
+valor_por_viaje = 5
+
+HTTP Request  | Name Endpoint |  Endpoint
+--------------|---------------|-----------
+GET | get rate driver | {{url}}/api/staff/get_rate/{driver_db_id} 
+
+### Headers
+
+Key  | Value 
+-----|-----
+Autorization | Bearer eyJ0eXAiOiJKV1Q...
+
+<aside class="warning">
+Revisar endpoint, al parecer aún no funciona al 100%
+</aside>
+
 # CMS-ENDPOINTS
 
 Sólo podrán acceder a CMS los siguientes usuarios:
