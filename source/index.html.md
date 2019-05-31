@@ -686,23 +686,16 @@ No aplica.
     "message": null,
     "data": [
         {
+            "id": 5,
             "name": "Chofer 1",
-            "last_name": "Chofer",
-            "driver_number": "",
+            "last_name": "chofer",
+            "driver_number": "123456789",
             "status": 1,
-            "company": "KokonutStudio",
-            "user_id": 8,
-            "incidents": 0,
-            "status_description": "Active"
-        },
-        {
-            "name": "Chofer 2",
-            "last_name": "Chofer",
-            "driver_number": "",
-            "status": 1,
-            "company": "KokonutStudio",
-            "user_id": 25,
-            "incidents": 0,
+            "company": "Empresa1",
+            "base": "GDL",
+            "user_id": 5,
+            "incidents": 1,
+            "grade": "",
             "status_description": "Active"
         }
     ]
